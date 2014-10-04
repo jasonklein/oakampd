@@ -6,6 +6,7 @@ gem 'rails', '3.2.18'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'faker'
 
 gem 'devise'
 gem 'cancan'
@@ -16,7 +17,6 @@ gem 'neat'
 gem 'bitters'
 
 gem 'haml-rails'
-
 
 # Gems used only for assets and not required
 # in production environments by default.
