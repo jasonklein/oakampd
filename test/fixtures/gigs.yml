@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  showdate: 2014-10-04
+  band: 
+  venue: 
+  price: 1.5
+  url: MyString
+
+two:
+  showdate: 2014-10-04
+  band: 
+  venue: 
+  price: 1.5
+  url: MyString
