@@ -1,2 +1,13 @@
-%h1 Gigs#index
-%p Find me in app/views/gigs/index.html.haml
+%h2 Gigs#index
+%table
+  %tbody
+    - @gigs.each do |gig|
+      %tr
+        %td
+          = gig.showdate.to_date
+        %td
+          = gig.band_name
+        %td
+          = gig.venue_details
+        %td
+          = gig.price
