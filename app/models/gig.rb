@@ -12,4 +12,5 @@ class Gig < ActiveRecord::Base
   def venue_details
     "#{venue.name}—#{venue.street_address}"
   end
+
 end

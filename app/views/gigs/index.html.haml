@@ -4,7 +4,7 @@
     - @gigs.each do |gig|
       %tr
         %td
-          = gig.showdate.to_date
+          = showdate_for_gig(@first_ids, gig)
         %td
           = gig.band_name
         %td
