@@ -1,4 +1,10 @@
 Oakampd::Application.routes.draw do
+  get "gigs/index"
+
+  get "gigs/new"
+
+  get "gigs/edit"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
