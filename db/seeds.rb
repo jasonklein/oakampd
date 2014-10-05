@@ -17,7 +17,7 @@ end
 10.times do
   array = [Faker::Company.name, Faker::Commerce.color, Faker::Commerce.product_name]
   venue_first_name = array.sample
-  array.reject { |i| i == venue_first_name}
+  array.reject! { |i| i == venue_first_name}
   venue_second_name = array.sample
   venue_name = (venue_first_name + venue_second_name).titleize
 
@@ -41,7 +41,7 @@ end
     day = rand(1..31).to_s
   end
 
-  date = year + month + day
+  date = year + "-" + month + "-" + day
   band = Band.all.sample
   venue = Venue.all.sample
 
@@ -50,7 +50,7 @@ end
     band_id: band.id,
     venue_id: venue.id,
     price: rand(0..50),
-    url: "http://www.google.com"
+    url: "#"
   )
 end
 
