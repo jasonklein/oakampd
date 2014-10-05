@@ -1,11 +1,4 @@
 module GigsHelper
-  def showdate_for_gig(ids, gig)
-    if ids.include? gig.id
-      render partial: "first_of_the_month", locals: {gig: gig}
-    else
-      gig.showdate.day
-    end
-  end
 
   def display_month(gig)
     date = gig.showdate
@@ -18,6 +11,13 @@ module GigsHelper
     else
       month[0..2].upcase
     end
+  end
+
+  def display_showdate(gig)
+    date = gig.showdate
+    day_word = date.strftime "%^a"
+
+    raw "<div class='day-word'>#{day_word}</div><div class='day-number'>#{date.day}</div>"
   end
 end
 
