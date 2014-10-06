@@ -10,5 +10,13 @@
     %meta{property: 'og:site_name', content: 'oak-ampd'}
 
   %body
-    %h1 OAK-AMP'D
-    = yield
+    %header
+      .oakampd-header-image
+        = image_tag "oakampd-header-black.png"
+    #main-container
+      #main-content
+        = yield
+      #gutter-column
+      #side-content
+    %footer
+      #footer-push
