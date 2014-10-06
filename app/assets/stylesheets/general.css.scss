@@ -23,7 +23,6 @@ body {
     }
     #side-content {
       @include span-columns(3);
-      background: #FFF;
     }
   }
   footer {

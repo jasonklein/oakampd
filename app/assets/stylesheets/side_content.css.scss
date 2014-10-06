@@ -1,0 +1,14 @@
+#side-content {
+  background: #FFF;
+  padding: 0 20px;
+  text-align: justify;
+  p {
+    &.odd-paragraph {
+      color: #FF0000;
+      font-weight: bold;
+    }
+    &.even-paragraph {
+      color: #093FC9;
+    }
+  }
+}
