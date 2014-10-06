@@ -11,33 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141004193631) do
-
-  create_table "bands", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20141006180411) do
 
   create_table "gigs", :force => true do |t|
     t.date     "showdate"
-    t.integer  "band_id"
-    t.integer  "venue_id"
     t.float    "price"
     t.string   "url"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "gigs", ["band_id"], :name => "index_gigs_on_band_id"
-  add_index "gigs", ["venue_id"], :name => "index_gigs_on_venue_id"
-
-  create_table "venues", :force => true do |t|
-    t.string   "name"
-    t.string   "street_address"
-    t.string   "zipcode"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "band"
+    t.string   "venue_name"
+    t.string   "venue_address"
   end
 
 end
