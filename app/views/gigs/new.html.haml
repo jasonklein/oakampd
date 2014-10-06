@@ -2,8 +2,8 @@
 %br
 = render "form"
 %br
-%h2 Add Gigs CSV
+%h2 Add Gigs Text/CSV file
 %br
-= form_tag controller: "gigs", action: "new_by_csv", method: "post" do
-  = file_field_tag :gigs_csv
-  = submit_tag "Upload CSV"
+= form_tag({controller: "gigs", action: "new_by_csv", method: "post"},{multipart: true}) do
+  = file_field_tag :gigs_csv, required: true
+  = submit_tag "Upload Gigs File"

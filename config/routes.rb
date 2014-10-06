@@ -3,7 +3,7 @@ Oakampd::Application.routes.draw do
 
   root to: "gigs#index"
 
-  get "gigs/new_by_csv", to: "gigs#new_by_csv", via: :post
+  post "gigs/new_by_csv", to: "gigs#new_by_csv"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
