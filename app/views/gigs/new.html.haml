@@ -1,9 +1,9 @@
-%h2 List a Gig
+%h2 Add Individual Gig
 %br
 = render "form"
 %br
-%h2 Add Gigs Text/CSV file
+%h2 Add Gigs via Text/CSV file
 %br
 = form_tag({controller: "gigs", action: "new_by_csv", method: "post"},{multipart: true}) do
   = file_field_tag :gigs_csv, required: true
-  = submit_tag "Upload Gigs File"
+  = submit_tag "Add Gigs"
