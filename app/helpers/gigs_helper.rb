@@ -24,6 +24,14 @@ module GigsHelper
     "#{gig.venue_name}—#{gig.venue_address}"
   end
 
+  def display_price(gig)
+    if gig.price && gig.price > 0
+      number_to_currency gig.price
+    else
+      "Free"
+    end
+  end
+
 end
 
 

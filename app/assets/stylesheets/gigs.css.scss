@@ -45,6 +45,7 @@
   #{$all-text-inputs},
   select[multiple=multiple] {
     width: 90%;
+    color: #FF0000;
   }
   #new-gig-row-1, #new-gig-row-2, #new-gig-row-3 {
     @include row(table);

@@ -2,14 +2,14 @@
   #new-gig-row-1
     #gig-showdate
       = f.label :showdate, "Showdate (YY-MM-DD)"
-      = f.text_field :showdate
+      = f.text_field :showdate, required: true
     #gig-band
       = f.label :band
-      = f.text_field :band
+      = f.text_field :band, required: true
   #new-gig-row-2
     #gig-venue-name
       = f.label :venue_name
-      = f.text_field :venue_name
+      = f.text_field :venue_name, required: true
     #gig-venue-address
       = f.label :venue_address
       = f.text_field :venue_address

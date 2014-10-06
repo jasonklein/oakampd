@@ -9,6 +9,12 @@ class GigsController < ApplicationController
   end
 
   def create
+    @gig = Gig.new params[:gig]
+    if @gig.save
+      redirect_to root_path, notice: "Gig added!"
+    else
+      render "new"
+    end
   end
 
   def new_by_csv
