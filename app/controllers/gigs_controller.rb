@@ -5,9 +5,13 @@ class GigsController < ApplicationController
   end
 
   def new
+    @gig = Gig.new
   end
 
   def create
+  end
+
+  def new_by_csv
   end
 
   def show

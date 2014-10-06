@@ -12,5 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= jquery-ui.min
 //= require isotope.pkgd.min
 //= require_tree .
+
+var OakAmpdApp = OakAmpdApp || {};

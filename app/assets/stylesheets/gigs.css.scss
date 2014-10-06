@@ -39,3 +39,22 @@
     }
   }
 }
+
+#new_gig {
+  textarea,
+  #{$all-text-inputs},
+  select[multiple=multiple] {
+    width: 90%;
+  }
+  #new-gig-row-1, #new-gig-row-2, #new-gig-row-3 {
+    @include row(table);
+  }
+  #gig-showdate, #gig-band,
+  #gig-venue-name, #gig-venue-address,
+  #gig-price, #gig-url {
+    @include span-columns(4 of 8);
+  }
+}
+
+
+

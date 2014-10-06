@@ -13,9 +13,9 @@
           %td.showdate
             = display_showdate(gig)
           %td.band-name
-            = gig.band_name
+            = gig.band
           %td.venue-details
-            = gig.venue_details
+            = display_venue_details(gig)
           %td.price
             %span
               = number_to_currency gig.price

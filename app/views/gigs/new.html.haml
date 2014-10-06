@@ -1,2 +1,9 @@
-%h1 Gigs#new
-%p Find me in app/views/gigs/new.html.haml
+%h2 List a Gig
+%br
+= render "form"
+%br
+%h2 Add Gigs CSV
+%br
+= form_tag controller: "gigs", action: "new_by_csv", method: "post" do
+  = file_field_tag :gigs_csv
+  = submit_tag "Upload CSV"

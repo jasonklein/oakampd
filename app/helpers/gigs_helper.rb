@@ -19,6 +19,11 @@ module GigsHelper
 
     raw "<div class='day-word'>#{day_word}</div><div class='day-number'>#{date.day}</div>"
   end
+
+  def display_venue_details(gig)
+    "#{gig.venue_name}—#{gig.venue_address}"
+  end
+
 end
 
 
