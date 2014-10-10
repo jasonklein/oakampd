@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#sort-buttons-container {
+  #sort-buttons {
+    .is-checked {
+      color: lighten(#FF0000, 10);
+    }
+  }
+}
+
 #gigs-listings {
   .first-of-the-month {
     @include span-columns(8 of 8);
@@ -35,16 +43,16 @@
         }
       }
     }
-    .band-name {
+    .band {
       @include span-columns(3 of 8);
     }
-    .venue-details {
+    .venue {
       @include span-columns(3 of 8);
     }
     .price {
       @include span-columns(1 of 8);
       span {
-        margin-left: 30%;
+        margin-left: 50%;
       }
     }
   }

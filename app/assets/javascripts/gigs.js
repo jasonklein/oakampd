@@ -13,8 +13,40 @@ OakAmpdGigsJs.showdateDatepicker = function() {
   });
 };
 
+
+OakAmpdGigsJs.isotopeSorting = function() {
+
+  // init Isotope
+  var $container = $('#gigs-listings').isotope({
+    layoutMode: 'vertical',
+    getSortData: {
+      band: '.band',
+      venue: '.venue',
+      price: '.price parseFloat'
+    }
+  });
+
+  // bind sort button click
+  $('#sort-buttons').on( 'click', 'button', function() {
+    var sortValue = $(this).attr('data-sort-value');
+    $container.isotope({ sortBy: sortValue });
+  });
+
+  // change is-checked class on buttons
+  $('.button-group').each( function( i, buttonGroup ) {
+    var $buttonGroup = $( buttonGroup );
+    $buttonGroup.on( 'click', 'button', function() {
+      $buttonGroup.find('.is-checked').removeClass('is-checked');
+      $( this ).addClass('is-checked');
+    });
+  });
+};
+
+
+
 OakAmpdGigsJs.setup = function() {
   OakAmpdGigsJs.showdateDatepicker();
+  OakAmpdGigsJs.isotopeSorting();
 }
 
 $(OakAmpdGigsJs.setup);

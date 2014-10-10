@@ -26,9 +26,9 @@ module GigsHelper
 
   def display_price(gig)
     if gig.price && gig.price > 0
-      number_to_currency gig.price
+      number_with_precision gig.price, precision: 2
     else
-      "Free"
+      0
     end
   end
 

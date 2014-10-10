@@ -1,3 +1,15 @@
+#sort-buttons-container
+  Sort
+  #sort-buttons.button-group
+    %button{class: "is-checked", data: {"sort-value" => "original-order"}}
+      chronological
+    %button{data: {"sort-value" => "band"}}
+      band
+    %button{data: {"sort-value" => "venue"}}
+      venue
+    %button{data: {"sort-value" => "price"}}
+      price
+%br
 #gigs-listings
   - @gigs.each do |gig|
     - if @first_ids.include? gig.id
@@ -6,9 +18,9 @@
     .gig-listing{class: "#{gig_listing_classes(gig, @last_ids)} #"}
       .gig-listing-cell.showdate
         = display_showdate(gig)
-      .gig-listing-cell.band-name
+      .gig-listing-cell.band
         = gig.band.upcase
-      .gig-listing-cell.venue-details
+      .gig-listing-cell.venue
         = gig.venue_name
       .gig-listing-cell.price
         %span
