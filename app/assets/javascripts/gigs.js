@@ -28,6 +28,13 @@ OakAmpdGigsJs.isotopeSorting = function() {
 
   // bind sort button click
   $('#sort-buttons').on( 'click', 'button', function() {
+    if(!$(this).is('#chronological')) {
+      $('.first-of-the-month').hide();
+      $('.showdate').addClass('change-for-sorting');
+    } else {
+      $('.first-of-the-month').show();
+      $('.showdate').removeClass('change-for-sorting');
+    };
     var sortValue = $(this).attr('data-sort-value');
     $container.isotope({ sortBy: sortValue });
   });

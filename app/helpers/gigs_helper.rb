@@ -17,7 +17,7 @@ module GigsHelper
     date = gig.showdate
     day_word = date.strftime "%^a"
 
-    raw "<div class='day-word'>#{day_word}</div><div class='day-number'>#{date.day}</div>"
+    raw "<div class='gig-month'>#{display_month(gig)}</div><div class='day-word'>#{day_word}</div><div class='day-number'>#{date.day}</div>"
   end
 
   def display_venue_details(gig)

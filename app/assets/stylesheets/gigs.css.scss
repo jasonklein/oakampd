@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #sort-buttons-container {
+  text-align: center;
   #sort-buttons {
     .is-checked {
       color: lighten(#FF0000, 10);
@@ -16,6 +17,9 @@
     @include row(table);
     font-size: $month-font-size;
     padding: $first-of-the-month-padding;
+    &.change-for-sorting {
+      display: none;
+    }
   }
   .gig-listing {
     @include span-columns(8 of 8);
@@ -38,8 +42,20 @@
       @include span-columns(1 of 8);
       div {
         display: inline-block;
+        &.gig-month {
+          display: none;
+        }
         &.day-word {
           width: 50%;
+        }
+      }
+      &.change-for-sorting {
+        .gig-month {
+          display: initial;
+          margin-right: 20px;
+        }
+        .day-word {
+          display: none;
         }
       }
     }

@@ -1,7 +1,6 @@
 #sort-buttons-container
-  Sort
   #sort-buttons.button-group
-    %button{class: "is-checked", data: {"sort-value" => "original-order"}}
+    %button{id: "chronological", class: "is-checked", data: {"sort-value" => "original-order"}}
       chronological
     %button{data: {"sort-value" => "band"}}
       band
@@ -15,7 +14,7 @@
     - if @first_ids.include? gig.id
       .first-of-the-month
         = display_month(gig)
-    .gig-listing{class: "#{gig_listing_classes(gig, @last_ids)} #"}
+    .gig-listing{class: "#{gig_listing_classes(gig, @last_ids)}"}
       .gig-listing-cell.showdate
         = display_showdate(gig)
       .gig-listing-cell.band
