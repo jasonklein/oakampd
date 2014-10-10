@@ -4,13 +4,8 @@ module GigsHelper
     date = gig.showdate
     month = date.strftime "%B"
 
-    ### Returns "JUNE" for June and "OCT" for October
-
-    if month.length <= 4
-      month.upcase
-    else
-      month[0..2].upcase
-    end
+    ### Returns "JUN" for "June" and "OCT" for "October"
+    month[0..2].upcase
   end
 
   def display_showdate(gig)

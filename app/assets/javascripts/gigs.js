@@ -30,10 +30,12 @@ OakAmpdGigsJs.isotopeSorting = function() {
   $('#sort-buttons').on( 'click', 'button', function() {
     if(!$(this).is('#chronological')) {
       $('.first-of-the-month').hide();
-      $('.showdate').addClass('change-for-sorting');
+      $('.showdate').addClass('change-showdate-for-sorting');
+      $('.last-of-the-month').addClass('change-last-of-the-month-for-sorting');
     } else {
       $('.first-of-the-month').show();
-      $('.showdate').removeClass('change-for-sorting');
+      $('.showdate').removeClass('change-showdate-for-sorting');
+      $('.last-of-the-month').removeClass('change-last-of-the-month-for-sorting');
     };
     $(this).blur();
     var sortValue = $(this).attr('data-sort-value');
