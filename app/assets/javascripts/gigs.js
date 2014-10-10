@@ -35,6 +35,7 @@ OakAmpdGigsJs.isotopeSorting = function() {
       $('.first-of-the-month').show();
       $('.showdate').removeClass('change-for-sorting');
     };
+    $(this).blur();
     var sortValue = $(this).attr('data-sort-value');
     $container.isotope({ sortBy: sortValue });
   });
