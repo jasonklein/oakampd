@@ -2,39 +2,49 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 #gigs-listings {
-  table {
-    tr {
-      &.first-of-the-month {
-        font-size: $month-font-size;
+  .first-of-the-month {
+    @include span-columns(8 of 8);
+    @include row(table);
+    font-size: $month-font-size;
+    padding: $first-of-the-month-padding;
+  }
+  .gig-listing {
+    @include span-columns(8 of 8);
+    @include row(table);
+    padding: $gig-listing-padding;
+    font-size: $gig-listing-font-size;
+    border-bottom: 1px solid $base-border-color;
+    &.last-of-the-month {
+      border-bottom: none;
+    }
+    &.past-showdate {
+      .gig-listing-cell {
+        text-decoration: line-through;
+        div {
+          text-decoration: line-through; 
+        }
       }
-      td {
-        &:nth-child(1) {
-          width: 15%;
+    }
+    .showdate {
+      @include span-columns(1 of 8);
+      div {
+        display: inline-block;
+        &.day-word {
+          width: 50%;
         }
-        &:nth-child(2) {
-          width: 35%;
-        }
-        &:nth-child(3) {
-          width: 40%;
-        }
-        &:nth-child(4) {
-          width: 10%;
-        }
-        &.showdate {
-          div {
-            display: inline-block;
-            &.day-word {
-              width: 40%;
-            }
-          }
-        }
-        &.price {
-          span {
-            float: right;
-          }
-        }
+      }
+    }
+    .band-name {
+      @include span-columns(3 of 8);
+    }
+    .venue-details {
+      @include span-columns(3 of 8);
+    }
+    .price {
+      @include span-columns(1 of 8);
+      span {
+        margin-left: 30%;
       }
     }
   }

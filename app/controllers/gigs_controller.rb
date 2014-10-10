@@ -1,7 +1,8 @@
 class GigsController < ApplicationController
   def index
     @gigs = Gig.all
-    @first_ids = first_of_the_month_ids(@gigs)
+    @first_ids = firsts_or_lasts_of_the_month_ids(@gigs)
+    @last_ids = firsts_or_lasts_of_the_month_ids(@gigs.reverse)
   end
 
   def new
@@ -31,10 +32,10 @@ class GigsController < ApplicationController
   def destroy
   end
 
-  def first_of_the_month_ids(gigs)
+  def firsts_or_lasts_of_the_month_ids(gigs)
 
     ### Assumes proper chrono. ordering by default_scope
-    ### Puts the first occurence of each new month into an array of "firsts"
+    ### Puts the first occurence of each month into an array
 
     firsts = []
     firsts << gigs.first
@@ -54,6 +55,8 @@ class GigsController < ApplicationController
     end
     ids
   end
+
+
 
   def create_gigs_from_file_and_return_count(file)
     gigs_array = file.split "\n"

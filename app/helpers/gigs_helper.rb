@@ -32,6 +32,27 @@ module GigsHelper
     end
   end
 
+  def last_of_the_month?(gig_id, last_ids)
+    last_ids.include? gig_id
+  end
+
+  def showdate_has_passed?(gig)
+    gig.showdate < Date.today
+  end
+
+  def gig_listing_classes(gig, last_ids)
+    classes_array = []
+    if last_of_the_month? gig.id, last_ids
+      classes_array << "last-of-the-month"
+    end
+
+    if showdate_has_passed? gig
+      classes_array << "past-showdate"
+    end
+
+    classes_array.join " "
+  end
+
 end
 
 

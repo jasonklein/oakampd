@@ -1,21 +1,15 @@
 #gigs-listings
-  %table
-    %tbody
-      - @gigs.each do |gig|
-        - if @first_ids.include? gig.id
-          %tr.first-of-the-month
-            %td
-              = display_month(gig)
-            %td
-            %td
-            %td
-        %tr
-          %td.showdate
-            = display_showdate(gig)
-          %td.band-name
-            = gig.band
-          %td.venue-details
-            = display_venue_details(gig)
-          %td.price
-            %span
-              = display_price(gig)
+  - @gigs.each do |gig|
+    - if @first_ids.include? gig.id
+      .first-of-the-month
+        = display_month(gig)
+    .gig-listing{class: "#{gig_listing_classes(gig, @last_ids)} #"}
+      .gig-listing-cell.showdate
+        = display_showdate(gig)
+      .gig-listing-cell.band-name
+        = gig.band.upcase
+      .gig-listing-cell.venue-details
+        = gig.venue_name
+      .gig-listing-cell.price
+        %span
+          = display_price(gig)

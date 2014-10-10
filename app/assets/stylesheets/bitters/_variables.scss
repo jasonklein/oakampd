@@ -8,7 +8,7 @@ $header-font-family: $base-font-family;
 
 // Sizes
 ///////////////////////////////////////////////////////////////////////////////
-$base-font-size: 1em;
+$base-font-size: 1em * 1;
 $base-line-height: $base-font-size * 1.5;
 $base-border-radius: em(3);
 
@@ -55,7 +55,12 @@ $form-font-family: $base-font-family;
 // Buttons
 $button-style: simple;
 
-// Font Sizes
+// Gig Listing
 
+$gig-listing-font-size: $base-font-size * 0.8;
 $month-font-size: $base-font-size * 3;
-$day-font-size: $base-font-size * 1.5;
+$gig-listing-padding: ($base-font-size / 5) 0;
+$first-of-the-month-padding: ($base-font-size / 3) 0;
+
+
+
