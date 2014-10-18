@@ -50,8 +50,10 @@ class GigsController < ApplicationController
     end
 
     ids = []
-    firsts.each do |first|
-      ids << first.id
+    if firsts.any?
+      firsts.each do |first|
+        ids << first.id
+      end
     end
     ids
   end
