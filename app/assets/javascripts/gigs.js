@@ -22,7 +22,14 @@ OakAmpdGigsJs.isotopeSorting = function() {
     getSortData: {
       band: '.band',
       venue: '.venue',
-      price: '.price parseFloat'
+      price: function(g) {
+        var price = $(g).find(".price").text();
+        if(price.indexOf("TBA") > -1) {
+          return parseFloat("-1");
+        } else {
+          return parseFloat(price);
+        }
+      }
     }
   });
 
