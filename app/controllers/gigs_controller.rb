@@ -19,7 +19,7 @@ class GigsController < ApplicationController
   end
 
   def new_by_csv
-    count = create_gigs_from_file_and_return_count params[:gigs_csv].read
+    count = create_gigs_from_file_and_return_count params[:gigs_csv].path
     redirect_to root_path, notice: "#{count} gigs added!"
   end
 
@@ -60,19 +60,20 @@ class GigsController < ApplicationController
 
 
 
-  def create_gigs_from_file_and_return_count(file)
-    gigs_array = file.split "\n"
-    split_gigs = gigs_array.map { |gig| gig.split "," }
-    split_gigs.each do |gig|
+  def create_gigs_from_file_and_return_count(csv_path)
+    require 'csv'
+
+    gigs_to_add = CSV.read csv_path
+    gigs_to_add.each do |gig|
       new_gig = Gig.new
-      new_gig.showdate = gig[0]
+      new_gig.showdate = Date.strptime(gig[0], "%m/%d/%Y")
       new_gig.band = gig[1]
       new_gig.venue_name = gig[2]
-      new_gig.venue_address = gig[3]
-      new_gig.price = gig[4]
-      new_gig.url = gig[5]
+      # new_gig.venue_address = gig[3]
+      new_gig.price = gig[3]
+      new_gig.url = gig[4]
       new_gig.save
     end
-    split_gigs.count
+    gigs_to_add.count
   end
 end
