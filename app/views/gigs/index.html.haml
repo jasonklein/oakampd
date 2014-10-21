@@ -14,7 +14,7 @@
     - if @first_ids.include? gig.id
       .first-of-the-month
         = display_month(gig)
-    .gig-listing{class: "#{gig_listing_classes(gig, @last_ids)}"}
+    .gig-listing{id: "gig-listing-#{gig.id}", class: "#{gig_listing_classes(gig, @last_ids)}"}
       .gig-listing-cell.showdate
         = display_showdate(gig)
       .gig-listing-cell.band
