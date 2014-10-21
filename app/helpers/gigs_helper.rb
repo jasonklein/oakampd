@@ -22,6 +22,8 @@ module GigsHelper
   def display_price(gig)
     if gig.price && gig.price > 0
       number_with_precision gig.price, precision: 2
+    elsif gig.price < 0
+      "TBA"
     else
       0
     end

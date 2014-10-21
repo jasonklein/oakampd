@@ -38,6 +38,10 @@
         }
       }
     }
+    .gig-listing-cell {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
     .showdate {
       @include span-columns(1 of 8);
       div {
