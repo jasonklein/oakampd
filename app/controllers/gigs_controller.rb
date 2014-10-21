@@ -11,6 +11,7 @@ class GigsController < ApplicationController
 
   def create
     @gig = Gig.new params[:gig]
+    @gig.price = @gig.price ? @gig.price : -1
     if @gig.save
       redirect_to root_path, notice: "Gig added!"
     else
@@ -70,7 +71,7 @@ class GigsController < ApplicationController
       new_gig.band = gig[1]
       new_gig.venue_name = gig[2]
       # new_gig.venue_address = gig[3]
-      new_gig.price = gig[3]
+      new_gig.price = gig[3] ? gig[3] : -1
       new_gig.url = gig[4]
       new_gig.save
     end
