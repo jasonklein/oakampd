@@ -1,8 +1,10 @@
 !!! 5
 %html
   %head
+    = favicon_link_tag favicon_filename
     %title
-      = yield(:title).empty? ? 'oak-ampd' : yield(:title)
+      = yield(:title).empty? ? 'OAKAMPD' : yield(:title)
+    %link{href: 'http://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:400,300', rel:'stylesheet', type: 'text/css'}
     = stylesheet_link_tag 'application', :media => 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
@@ -11,8 +13,24 @@
 
   %body
     %header
-      .oakampd-header-image
+      #header-left
         = display_header_image
+      #header-right
+        #header-right-text
+          %h5 Your Oakland gig guide. Sort listings by date, venue, artist, or price and find your next live music night out. For tickets for sale online, click the price in the listing.
+          %h5 Prices shown may represent the lowest and/or advance ticket prices and could be higher at the door or depending on other options.
+        %nav
+          %ul
+            %li HOME
+            %li VENUES
+            %li BANDWATCH
+            %li ABOUT
+            %li
+              %ul
+                %li E
+                %li T
+                %li F
+                %li I
     .notices
       = notice
     .alerts

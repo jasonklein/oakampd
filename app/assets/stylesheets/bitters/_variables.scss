@@ -3,8 +3,13 @@
 $sans-serif: $helvetica;
 $serif: $georgia;
 
-$base-font-family: $sans-serif;
-$header-font-family: $base-font-family;
+// $base-font-family: $sans-serif;
+// $header-font-family: $base-font-family;
+
+$base-font-family: 'Roboto', serif;
+$base-font-weight: 300;
+$header-font-family: 'Roboto Slab', sans-serif;
+
 
 // Sizes
 ///////////////////////////////////////////////////////////////////////////////
