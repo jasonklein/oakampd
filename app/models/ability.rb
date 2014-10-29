@@ -9,7 +9,7 @@ class Ability
         can :manage, :all
       elsif user.role? :assistant
         can :read, :all
-        can :manage, :gigs
+        can :manage, Gig
       else
         can :read, :all
       end

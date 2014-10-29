@@ -1,7 +1,8 @@
 class GigsController < ApplicationController
 
   before_filter :authenticate_user!, except: :index
-  
+  load_and_authorize_resource
+
   def index
     @gigs = Gig.all
     @first_ids = firsts_or_lasts_of_the_month_ids(@gigs)
