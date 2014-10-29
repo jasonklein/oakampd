@@ -1,4 +1,6 @@
 Oakampd::Application.routes.draw do
+  devise_for :users
+
   resources :gigs
 
   root to: "gigs#index"
