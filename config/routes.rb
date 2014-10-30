@@ -1,9 +1,15 @@
 Oakampd::Application.routes.draw do
-  devise_for :users
 
   resources :gigs
 
   root to: "gigs#index"
+
+  devise_for :users, path: "/", path_names: { sign_in: 'login', sign_out: 'logout' }, skip: [:registrations]
+  as :user do
+    get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
+    put 'users' => 'devise/registrations#update', :as => 'update_user_registration'
+  end
+
 
   post "gigs/new_by_csv", to: "gigs#new_by_csv"
   delete "gigs/:id", to: "gigs#destroy", as: "delete_gig"
