@@ -65,9 +65,9 @@ OakAmpdGigsJs.isotopeSorting = function() {
 
 OakAmpdGigsJs.bindBestInPlaceFields = function() {
   $('.best_in_place').best_in_place();
-  $('.best_in_place').bind("ajax:success", function() {
-    $(this).slideUp();
-  });
+  // $('.best_in_place').bind("ajax:success", function() {
+  //   $(this).slideUp();
+  // });
 };
 
 OakAmpdGigsJs.setup = function() {
