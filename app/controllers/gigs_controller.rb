@@ -34,6 +34,19 @@ class GigsController < ApplicationController
   def edit
   end
 
+  def update
+    @gig = Gig.find params[:id]
+    respond_to do |format|
+      if @gig.update_attributes(params[:gig])
+        format.html { redirect_to root_path, :notice => 'Gig was successfully updated.' }
+        format.json { respond_with_bip @gig }
+      else
+        format.html { render :action => "edit" }
+        format.json { respond_with_bip(@gig) }
+      end
+    end
+  end
+
   def destroy
   end
 

@@ -59,11 +59,14 @@ OakAmpdGigsJs.isotopeSorting = function() {
   });
 };
 
-
+OakAmpdGigsJs.bindBestInPlaceFields = function() {
+  $('.best_in_place').best_in_place();
+};
 
 OakAmpdGigsJs.setup = function() {
   OakAmpdGigsJs.showdateDatepicker();
   OakAmpdGigsJs.isotopeSorting();
+  OakAmpdGigsJs.bindBestInPlaceFields();
 }
 
 $(OakAmpdGigsJs.setup);

@@ -31,16 +31,23 @@
       }
     }
     &.past-showdate {
-      .gig-listing-cell {
-        text-decoration: line-through;
-        div {
-          text-decoration: line-through; 
-        }
+      .gig-listing-cell, .gig-month, .day-word, .day-number {
+        color: rgba(0,0,0,0.5);
       }
     }
     .gig-listing-cell {
       padding-left: 5px;
       padding-right: 5px;
+      #{$all-text-inputs} {
+        width: 65%;
+        display: inline;
+        margin-right: 10px;
+      }      
+      .bip-cancel-btn {
+        margin-bottom: 10px;
+        color: rgba(0,0,0,1);
+        display: inline;
+      }
     }
     .showdate {
       @include span-columns(1 of 8);

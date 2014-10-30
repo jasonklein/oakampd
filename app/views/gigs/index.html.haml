@@ -18,7 +18,7 @@
       .gig-listing-cell.showdate
         = display_showdate(gig)
       .gig-listing-cell.band
-        = gig.band.upcase
+        = best_in_place_if can?(:update, gig), gig, :band, display_as: :band_upcase, type: :input, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
       .gig-listing-cell.venue
         = gig.venue_name
       .gig-listing-cell.price

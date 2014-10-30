@@ -3,4 +3,8 @@ class Gig < ActiveRecord::Base
 
   default_scope order("showdate ASC")
 
+  def band_upcase
+    self.band.upcase
+  end
+
 end
