@@ -1,13 +1,15 @@
 Oakampd::Application.routes.draw do
 
   resources :gigs
+  resources :users, only: [:new, :show]
 
   root to: "gigs#index"
 
   devise_for :users, path: "/", path_names: { sign_in: 'login', sign_out: 'logout' }, skip: [:registrations]
   as :user do
-    get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
-    put 'users' => 'devise/registrations#update', :as => 'update_user_registration'
+    get "users/edit" => "devise/registrations#edit", :as => "edit_user_registration"
+    put "users" => "devise/registrations#update", :as => "update_user_registration"
+    delete "users" => "devise/registrations#destroy"
   end
 
 

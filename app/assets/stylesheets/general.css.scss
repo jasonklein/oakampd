@@ -4,6 +4,14 @@ body {
   color: #000;
   header {
     padding-top: 30px;
+    #user-info {
+      text-align: right;
+      font-size: $base-font-size;
+      margin-bottom: 20px;
+      span {
+        margin: 0 5px;
+      }
+    }
     #header-left {
       @include span-columns(3);
       margin-right: 0;
