@@ -27,10 +27,13 @@
         %nav
           %ul
             %li
-              = link_to "HOME", root_path
-            %li VENUES
-            %li BANDWATCH
-            %li ABOUT
+              = link_to "HOME", root_path, class: active_if_active("home")
+            %li
+              = link_to "VENUES", page_path("venues"), class: active_if_active("venues")
+            %li
+              = link_to "BANDWATCH", page_path("bandwatch"), class: active_if_active("bandwatch")
+            %li
+              = link_to "ABOUT", page_path("about"), class: active_if_active("about")
             %li
               %ul
                 %li E

@@ -15,4 +15,15 @@ module ApplicationHelper
     "oak-ampd-favicon.ico"
   end
 
+  def active_if_active(view)
+    controller = params[:controller]
+    if controller == "gigs" && view == "home"
+      "active"
+    else
+      if controller == "high_voltage/pages"
+        "active" if params[:id] == view
+      end
+    end
+  end
+
 end

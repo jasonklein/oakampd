@@ -42,6 +42,9 @@ body {
           display: table;
           li {
             display: table-cell;
+            .active {
+              color: $active-link-color;
+            }
           }
         }
       }
