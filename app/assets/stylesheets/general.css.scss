@@ -1,6 +1,6 @@
 body {
   @include outer-container;
-  background: #FFF;
+  background: #E7FEF8;
   color: #000;
   header {
     padding-top: 30px;
@@ -24,8 +24,8 @@ body {
       nav {
         font-family: $header-font-family;
         font-size: $base-font-size * 1.75;
-        border-top: 4px solid #000;
-        border-bottom: 4px solid #000;
+        border-top: 3px solid #000;
+        border-bottom: 3px solid #000;
         padding-top: 10px;
         padding-bottom: 10px;
         ul {
