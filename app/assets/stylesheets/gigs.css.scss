@@ -35,59 +35,76 @@
         color: rgba(0,0,0,0.5);
       }
     }
-    .gig-listing-cell {
-      padding-left: 5px;
-      padding-right: 5px;
+    .bip-cancel-btn {
+      margin-bottom: 10px;
+      color: rgba(0,0,0,1);
+      display: inline;
+    }
+    .gig-details {
+      @include row(table);
+      .gig-listing-cell {
+        padding-left: 5px;
+        padding-right: 5px;
+        #{$all-text-inputs} {
+          width: 60%;
+          display: inline;
+          margin-right: 5px;
+        }      
+      }
+      .showdate {
+        @include span-columns(1 of 8);
+        div {
+          display: inline-block;
+          &.gig-month {
+            display: none;
+          }
+          &.day-word {
+            width: 50%;
+          }
+        }
+        &.change-showdate-for-sorting {
+          .gig-month {
+            display: initial;
+            margin-right: 20px;
+          }
+          .day-word {
+            display: none;
+          }
+        }
+      }
+      .band {
+        @include span-columns(3 of 8);
+      }
+      .venue {
+        @include span-columns(2 of 8);
+      }
+      .price {
+        @include span-columns(2 of 8);
+        span {
+          margin-left: 50%;
+          .price-url {
+            font-weight: 400;
+          }
+          &.bpi-price {
+            #{$all-text-inputs} {
+              width: 25%;
+              display: inline;
+              margin-right: 5px;
+            }      
+          }
+        }
+      }
+    }
+    .gig-url {
+      @include row(table);
+      margin: 10px 0 20px 0;
+      color: $inactive-link-color;
+      font-size: $gig-listing-inactive-url-font-size;
       #{$all-text-inputs} {
-        width: 60%;
+        width: 80%;
         display: inline;
         margin-right: 5px;
       }      
-      .bip-cancel-btn {
-        margin-bottom: 10px;
-        color: rgba(0,0,0,1);
-        display: inline;
-      }
-    }
-    .showdate {
-      @include span-columns(1 of 8);
-      div {
-        display: inline-block;
-        &.gig-month {
-          display: none;
-        }
-        &.day-word {
-          width: 50%;
-        }
-      }
-      &.change-showdate-for-sorting {
-        .gig-month {
-          display: initial;
-          margin-right: 20px;
-        }
-        .day-word {
-          display: none;
-        }
-      }
-    }
-    .band {
-      @include span-columns(3 of 8);
-    }
-    .venue {
-      @include span-columns(2 of 8);
-    }
-    .price {
-      @include span-columns(2 of 8);
-      span {
-        margin-left: 50%;
-        &.bpi-price {
-          #{$all-text-inputs} {
-            width: 25%;
-            display: inline;
-            margin-right: 5px;
-          }      
-        }
-      }
     }
   }
 }

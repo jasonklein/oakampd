@@ -15,15 +15,19 @@
       .first-of-the-month
         = display_month(gig)
     .gig-listing{id: "gig-listing-#{gig.id}", class: "#{gig_listing_classes(gig, @last_ids)}"}
-      .gig-listing-cell.showdate
-        = best_in_place_if can?(:update, gig), gig, :showdate, display_as: :display_showdate, type: :date
-      .gig-listing-cell.band
-        = best_in_place_if can?(:update, gig), gig, :band, display_as: :band_upcase, type: :input, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
-      .gig-listing-cell.venue
-        = best_in_place_if can?(:update, gig), gig, :venue_name, type: :input, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
-      .gig-listing-cell.price
-        - if can? :update, gig
-          = best_in_place_if can?(:update, gig), gig, :price, display_as: :display_price, type: :input, class: "bpi-price", cancel_button: "C", cancel_button_class: "bip-cancel-btn"
-        - else
-          %span
-            = gig.display_price
+      .gig-details
+        .gig-listing-cell.showdate
+          = best_in_place_if can?(:update, gig), gig, :showdate, display_as: :display_showdate, type: :date
+        .gig-listing-cell.band
+          = best_in_place_if can?(:update, gig), gig, :band, display_as: :band_upcase, type: :input, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
+        .gig-listing-cell.venue
+          = best_in_place_if can?(:update, gig), gig, :venue_name, type: :input, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
+        .gig-listing-cell.price
+          - if can? :update, gig
+            = best_in_place_if can?(:update, gig), gig, :price, display_as: :display_price, type: :input, class: "bpi-price", cancel_button: "C", cancel_button_class: "bip-cancel-btn"
+          - else
+            %span
+              = gig.url ? link_to(gig.display_price, gig.url, class: "price-url", target: "blank") : gig.display_price
+      - if can? :update, gig
+        .gig-url
+          = best_in_place_if can?(:update, gig), gig, :url, type: :input, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
