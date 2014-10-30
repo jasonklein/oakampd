@@ -22,15 +22,17 @@ $base-border-radius: em(3);
 
 $blue: #477DCA;
 $dark-gray: #333;
-$medium-gray: #999;
+$medium-gray: #565656;
 $light-gray: #DDD;
 $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;
 $light-green: #E6EFC2;
 $rich-blue: #0F6C93;
+$teal: #7DF9DA;
 
 // Body Color
 $base-body-color: white;
+$oakampd-logo-color: $teal;
 
 //  Font Colors
 $base-font-color: $dark-gray;
@@ -61,6 +63,9 @@ $form-font-family: $base-font-family;
 
 // Buttons
 $button-style: simple;
+$sort-button-color: $oakampd-logo-color;
+$sort-button-text-color: $medium-gray;
+$sort-button-selected-text-color: #000;
 
 // Gig Listing
 

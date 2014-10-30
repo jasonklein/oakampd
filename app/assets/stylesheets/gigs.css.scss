@@ -5,8 +5,12 @@
 #sort-buttons-container {
   text-align: center;
   #sort-buttons {
+    %button {
+      @include button($button-style, $sort-button-color);
+      color: $sort-button-text-color;
+    }
     .is-checked {
-      color: lighten(#FF0000, 10);
+      color: $sort-button-selected-text-color;
     }
   }
 }
