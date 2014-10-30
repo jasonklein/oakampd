@@ -6,6 +6,7 @@ Oakampd::Application.routes.draw do
   root to: "gigs#index"
 
   post "gigs/new_by_csv", to: "gigs#new_by_csv"
+  delete "gigs/:id", to: "gigs#destroy", as: "delete_gig"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

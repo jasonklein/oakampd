@@ -28,6 +28,9 @@
           - else
             %span
               = gig.url ? link_to(gig.display_price, gig.url, class: "price-url", target: "blank") : gig.display_price
-      - if can?(:update, gig) && gig.url
-        .gig-url
-          = best_in_place_if can?(:update, gig), gig, :url, type: :input, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
+      - if can?(:update, gig)
+        - if gig.url
+          .gig-url
+            = best_in_place_if can?(:update, gig), gig, :url, type: :input, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
+        .gig-delete
+          = button_to "DELETE", delete_gig_path(gig), method: :delete, confirm: "Delete gig?"

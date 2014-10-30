@@ -35,7 +35,6 @@ class GigsController < ApplicationController
   end
 
   def update
-    @gig = Gig.find params[:id]
     respond_to do |format|
       if @gig.update_attributes(params[:gig])
         format.html { redirect_to root_path, :notice => 'Gig was successfully updated.' }
@@ -48,6 +47,8 @@ class GigsController < ApplicationController
   end
 
   def destroy
+    @gig.destroy
+    redirect_to root_path, notice: "Gig deleted."
   end
 
   def firsts_or_lasts_of_the_month_ids(gigs)
