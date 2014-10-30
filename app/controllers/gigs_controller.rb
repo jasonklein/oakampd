@@ -76,8 +76,6 @@ class GigsController < ApplicationController
     ids
   end
 
-
-
   def create_gigs_from_file_and_return_count(csv_path)
     require 'csv'
 

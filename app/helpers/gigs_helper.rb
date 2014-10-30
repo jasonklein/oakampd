@@ -8,26 +8,32 @@ module GigsHelper
     month[0..2].upcase
   end
 
-  def display_showdate(gig)
-    date = gig.showdate
-    day_word = date.strftime "%^a"
+  ### Comment out display_showdate method in favor of model method for
+  ### use with best_in_place
 
-    raw "<div class='gig-month'>#{display_month(gig)}</div><div class='day-word'>#{day_word}</div><div class='day-number'>#{date.day}</div>"
-  end
+  # def display_showdate(gig)
+  #   date = gig.showdate
+  #   day_word = date.strftime "%^a"
+
+  #   raw "<div class='gig-month'>#{display_month(gig)}</div><div class='day-word'>#{day_word}</div><div class='day-number'>#{date.day}</div>"
+  # end
 
   def display_venue_details(gig)
     "#{gig.venue_name}—#{gig.venue_address}"
   end
 
-  def display_price(gig)
-    if gig.price && gig.price > 0
-      number_with_precision gig.price, precision: 2
-    elsif gig.price < 0
-      "TBA"
-    else
-      0
-    end
-  end
+  ### Comment out display_price method in favor of model method for
+  ### use with best_in_place
+
+  # def display_price(gig)
+  #   if gig.price && gig.price > 0
+  #     number_with_precision gig.price, precision: 2
+  #   elsif gig.price < 0
+  #     "TBA"
+  #   else
+  #     0
+  #   end
+  # end
 
   def last_of_the_month?(gig_id, last_ids)
     last_ids.include? gig_id

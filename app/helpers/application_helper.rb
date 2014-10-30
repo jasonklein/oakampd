@@ -14,4 +14,5 @@ module ApplicationHelper
   def favicon_filename
     "oak-ampd-favicon.ico"
   end
+
 end

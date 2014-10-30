@@ -4,13 +4,17 @@
 
 var OakAmpdGigsJs = OakAmpdGigsJs || {};
 
-OakAmpdGigsJs.showdateDatepicker = function() {
-  $('#gig_showdate').datepicker({
+OakAmpdGigsJs.setDatePickerDefaults = function() {
+  $.datepicker.setDefaults({
     numberOfMonths: 1,
     showButtonPanel: true,
     firstDay: 1,
     dateFormat: "yy-mm-dd"
   });
+}
+
+OakAmpdGigsJs.showdateDatepicker = function() {
+  $('#gig_showdate').datepicker();
 };
 
 
@@ -64,6 +68,7 @@ OakAmpdGigsJs.bindBestInPlaceFields = function() {
 };
 
 OakAmpdGigsJs.setup = function() {
+  OakAmpdGigsJs.setDatePickerDefaults();
   OakAmpdGigsJs.showdateDatepicker();
   OakAmpdGigsJs.isotopeSorting();
   OakAmpdGigsJs.bindBestInPlaceFields();
