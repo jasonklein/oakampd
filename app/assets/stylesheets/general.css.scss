@@ -1,6 +1,6 @@
 body {
   @include outer-container;
-  background: #E7FEF8;
+  background: $base-body-color;
   color: #000;
   header {
     padding-top: 30px;
