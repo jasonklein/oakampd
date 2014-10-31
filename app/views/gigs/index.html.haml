@@ -17,20 +17,20 @@
     .gig-listing{id: "gig-listing-#{gig.id}", class: "#{gig_listing_classes(gig, @last_ids)}"}
       .gig-details
         .gig-listing-cell.showdate
-          = best_in_place_if can?(:update, gig), gig, :showdate, display_as: :display_showdate, type: :date
+          = best_in_place_if can?(:update, gig), gig, :showdate, display_as: :display_showdate, as: :date
         .gig-listing-cell.band
-          = best_in_place_if can?(:update, gig), gig, :band, display_as: :band_upcase, type: :input, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
+          = best_in_place_if can?(:update, gig), gig, :band, display_as: :band_upcase, as: :input, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
         .gig-listing-cell.venue
-          = best_in_place_if can?(:update, gig), gig, :venue_name, type: :input, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
+          = best_in_place_if can?(:update, gig), gig, :venue_name, as: :input, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
         .gig-listing-cell.price
           - if can? :update, gig
-            = best_in_place_if can?(:update, gig), gig, :price, display_as: :display_price, type: :input, class: "bpi-price", cancel_button: "C", cancel_button_class: "bip-cancel-btn"
+            = best_in_place_if can?(:update, gig), gig, :price, display_as: :display_price, as: :input, class: "bpi-price", cancel_button: "C", cancel_button_class: "bip-cancel-btn"
           - else
             %span
               = gig.url && !showdate_has_passed?(gig) ? link_to(gig.display_price, gig.url, class: "price-url", target: "blank") : gig.display_price
       - if can?(:update, gig)
         - if gig.url
           .gig-url
-            = best_in_place_if can?(:update, gig), gig, :url, type: :input, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
+            = best_in_place_if can?(:update, gig), gig, :url, as: :input, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
         .gig-delete
           = button_to "DELETE", delete_gig_path(gig), method: :delete, confirm: "Delete gig?"
