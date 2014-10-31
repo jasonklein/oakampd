@@ -17,7 +17,7 @@ module ApplicationHelper
 
   def active_if_active(view)
     controller = params[:controller]
-    if controller == "gigs" && view == "home"
+    if controller == "gigs" && view == "gigs"
       "active"
     else
       if controller == "high_voltage/pages"
