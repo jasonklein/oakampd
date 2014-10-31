@@ -42,8 +42,17 @@ body {
           display: table;
           li {
             display: table-cell;
+            vertical-align: middle;
             .active {
               color: $active-link-color;
+            }
+            .icon {
+              fill: $hover-link-color;
+              width: 40px;
+              height: auto;
+              &:hover {
+                fill: $base-link-color;
+              };
             }
           }
         }

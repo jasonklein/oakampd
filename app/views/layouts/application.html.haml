@@ -3,7 +3,7 @@
   %head
     = favicon_link_tag favicon_filename
     %title
-      = yield(:title).empty? ? 'OAKAMPD' : yield(:title)
+      = yield(:title).empty? ? 'OAK AMPD' : yield(:title)
     %link{href: 'http://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:400,300', rel:'stylesheet', type: 'text/css'}
     = stylesheet_link_tag 'application', :media => 'all'
     = javascript_include_tag 'application'
@@ -38,10 +38,13 @@
               = link_to "ABOUT", page_path("about"), class: active_if_active("about")
             %li
               %ul
-                %li E
-                %li T
-                %li F
-                %li I
+                %li
+                  = mail_to "oakampd@gmail.com", render("layouts/email_icon")
+                %li
+                  = link_to render("layouts/twitter_icon"), "https://twitter.com/oakampd", target: "blank"
+
+
+
     .notices
       = notice
     .alerts
@@ -51,6 +54,7 @@
         = yield
       #gutter-column
       #side-content
+        = render "layouts/twitter_widget"
         = render "side_content/placeholder"
     %footer
       #footer-push
