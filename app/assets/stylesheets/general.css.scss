@@ -61,6 +61,7 @@ body {
     @include row(table);
     #main-content {
       @include span-columns(8);
+      vertical-align: top;
     }
     #gutter-column {
       @include span-columns(1);
