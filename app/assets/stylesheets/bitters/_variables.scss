@@ -40,8 +40,8 @@ $base-font-color: $dark-gray;
 $base-accent-color: $rich-blue;
 
 //  Text Link Colors
-$base-link-color: $base-accent-color;
-$hover-link-color: darken($base-accent-color, 15);
+$base-link-color: lighten($base-accent-color, 20);
+$hover-link-color: lighten($base-accent-color, 45);
 $active-link-color: $hover-link-color;
 $inactive-link-color: $blue;
 

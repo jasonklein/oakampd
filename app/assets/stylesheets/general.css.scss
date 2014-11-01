@@ -1,7 +1,15 @@
+html { 
+  background: url("oakampd-background-black.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 body {
   @include outer-container;
-  background: $base-body-color;
-  color: #000;
+  background: transparentize($rich-blue, 1);
+  color: #FFF;
   header {
     padding-top: 30px;
     #user-info {

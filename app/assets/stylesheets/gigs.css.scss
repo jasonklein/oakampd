@@ -19,15 +19,21 @@
   .first-of-the-month {
     @include span-columns(8 of 8);
     @include row(table);
-    font-size: $month-font-size;
     padding: $first-of-the-month-padding;
+    span {
+      font-size: $month-font-size;
+      background-color: rgba(0,0,0,0.89);
+    }
+    margin-bottom: 7px;
+    margin-top: 15px;
   }
   .gig-listing {
     @include span-columns(8 of 8);
     @include row(table);
     padding: $gig-listing-padding;
     font-size: $gig-listing-font-size;
-    border-bottom: 1px solid $base-border-color;
+    background-color: rgba(0,0,0,0.89);
+    margin-bottom: 3px;
     &.last-of-the-month {
       border-bottom: none;
       &.change-last-of-the-month-for-sorting {
@@ -36,7 +42,7 @@
     }
     &.past-showdate {
       .gig-listing-cell, .gig-month, .day-word, .day-number {
-        color: rgba(0,0,0,0.5);
+        color: rgba(255,255,255,0.4);
       }
     }
     .bip-cancel-btn {
