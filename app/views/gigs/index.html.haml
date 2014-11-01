@@ -28,7 +28,7 @@
             = best_in_place_if can?(:update, gig), gig, :price, display_as: :display_price, as: :input, class: "bpi-price", cancel_button: "C", cancel_button_class: "bip-cancel-btn"
           - else
             %span
-              = gig.url && !showdate_has_passed?(gig) ? link_to(gig.display_price, gig.url, class: "price-url", target: "blank") : gig.display_price
+              = gig.url && !showdate_has_passed?(gig) ? link_to(gig.display_price, gig.url, class: "price-url", target: "_blank") : gig.display_price
       - if can?(:update, gig)
         - if gig.url
           .gig-url
