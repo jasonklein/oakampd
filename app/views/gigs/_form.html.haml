@@ -1,24 +1,24 @@
 = form_for @gig do |f|
   #new-gig-row-1
     #gig-showdate
-      = f.label :showdate, "Showdate (YY-MM-DD)"
+      = f.label :showdate, form_label_with_backing(:showdate)
       = f.text_field :showdate, required: true
     #gig-band
-      = f.label :band
+      = f.label :band, form_label_with_backing(:band)
       = f.text_field :band, required: true
   #new-gig-row-2
     #gig-venue-name
-      = f.label :venue_name
+      = f.label :venue_name, form_label_with_backing(:venue_name)
       = f.text_field :venue_name, required: true
     #gig-venue-address
-      = f.label :venue_address
+      = f.label :venue_address, form_label_with_backing(:venue_address)
       = f.text_field :venue_address
   #new-gig-row-3
     #gig-price
-      = f.label :price
+      = f.label :price, form_label_with_backing(:price)
       = f.number_field :price, min: "-1", step: "0.01"
     #gig-url
-      = f.label :url, "URL"
+      = f.label :url, form_label_with_backing(:url)
       = f.text_field :url
   %br
   = f.submit "Add Gig"

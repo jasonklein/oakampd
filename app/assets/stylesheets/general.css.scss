@@ -10,6 +10,13 @@ body {
   @include outer-container;
   background: transparentize($rich-blue, 1);
   color: #FFF;
+  .backing {
+    background-color: rgba(0,0,0,0.89);
+  }
+  .text-block {
+    padding: 0 5px;
+    font-size: $base-font-size * 1.1;
+  }
   header {
     padding-top: 30px;
     #user-info {
@@ -40,8 +47,6 @@ body {
       nav {
         font-family: $header-font-family;
         font-size: $base-font-size * 1.75;
-        border-top: 3px solid #000;
-        border-bottom: 3px solid #000;
         padding-top: 10px;
         padding-bottom: 10px;
         ul {
@@ -51,8 +56,14 @@ body {
           li {
             display: table-cell;
             vertical-align: middle;
+            &.nav-link {
+              a:hover {
+                border-bottom: 2px solid $active-link-color;
+              }
+            }
             .active {
               color: $active-link-color;
+              border-bottom: 2px solid $active-link-color;
             }
             .icon {
               fill: $hover-link-color;

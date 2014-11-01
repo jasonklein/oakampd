@@ -13,9 +13,9 @@
   - @gigs.each do |gig|
     - if @first_ids.include? gig.id
       .first-of-the-month
-        %span
+        %span.backing
           = display_month(gig)
-    .gig-listing{id: "gig-listing-#{gig.id}", class: "#{gig_listing_classes(gig, @last_ids)}"}
+    .gig-listing{id: "gig-listing-#{gig.id}", class: "backing #{gig_listing_classes(gig, @last_ids)}"}
       .gig-details
         .gig-listing-cell.showdate
           = best_in_place_if can?(:update, gig), gig, :showdate, display_as: :display_showdate, as: :date

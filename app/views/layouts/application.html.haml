@@ -28,13 +28,13 @@
           %h5 Prices shown may represent the lowest and/or advance ticket prices and could be higher at the door or depending on other options.
         %nav
           %ul
-            %li
+            %li.nav-link
               = link_to "GIGS", root_path, class: active_if_active("gigs")
-            %li
+            %li.nav-link
               = link_to "VENUES", page_path("venues"), class: active_if_active("venues")
-            %li
+            %li.nav-link
               = link_to "BANDWATCH", page_path("bandwatch"), class: active_if_active("bandwatch")
-            %li
+            %li.nav-link
               = link_to "ABOUT", page_path("about"), class: active_if_active("about")
             %li
               %ul
@@ -42,13 +42,12 @@
                   = mail_to "oakampd@gmail.com", render("layouts/email_icon")
                 %li
                   = link_to render("layouts/twitter_icon"), "https://twitter.com/oakampd", target: "blank"
-
-
-
     .notices
-      = notice
+      %span.backing
+        = notice
     .alerts
-      = alert
+      %span.backing
+        = alert
     #main-container
       #main-content
         = yield

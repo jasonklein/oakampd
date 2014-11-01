@@ -26,4 +26,15 @@ module ApplicationHelper
     end
   end
 
+  def form_label_with_backing(label)
+    case label
+    when :showdate
+      raw "<span class='backing'>Showdate (YY-MM-DD)</span>"
+    when :url
+      raw "<span class='backing'>URL</span>"
+    else
+      raw "<span class='backing'>#{label.capitalize}</span>"
+    end
+  end
+
 end
