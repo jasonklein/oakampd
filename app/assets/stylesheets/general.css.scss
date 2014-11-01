@@ -14,7 +14,7 @@ body {
     background-color: rgba(0,0,0,0.89);
   }
   .text-block {
-    padding: 0 5px;
+    padding-left: 5px;
     font-size: $base-font-size * 1.2;
   }
   header {
@@ -41,13 +41,13 @@ body {
       #header-right-text {
         padding-left: 2%;
         h5 {
-          margin-bottom: 10px;
+          margin-bottom: 15px;
+          font-weight: $base-font-weight;
         }
       }
       nav {
         font-family: $header-font-family;
         font-size: $base-font-size * 1.75;
-        padding-top: 10px;
         padding-bottom: 10px;
         ul {
           padding-left: 2%;

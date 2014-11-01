@@ -4,7 +4,7 @@
     = favicon_link_tag favicon_filename
     %title
       = yield(:title).empty? ? 'OAK AMPD' : yield(:title)
-    %link{href: 'http://fonts.googleapis.com/css?family=Roboto+Slab|Roboto:400,300', rel:'stylesheet', type: 'text/css'}
+    %link{href: 'http://fonts.googleapis.com/css?family=Roboto+Slab:400,300|Roboto:400,300', rel:'stylesheet', type: 'text/css'}
     = stylesheet_link_tag 'application', :media => 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
@@ -24,8 +24,8 @@
         = display_header_image
       #header-right
         #header-right-text
-          %h5 Your Oakland gig guide. Sort listings by date, venue, band, or price and find your next live music night out. For tickets for sale online, click the price in the listing.
-          %h5 Prices shown may represent the lowest and/or advance ticket prices and could be higher at the door or depending on other options.
+          %h5 Your Oakland gig guide. Sort listings by date, venue, band, or price and find your next live music night out.
+          %h5 For tickets, click the price in the listing. Prices shown may represent the lowest and/or advance ticket prices and could be higher at the door or depending on other options.
         %nav
           %ul
             %li.nav-link
