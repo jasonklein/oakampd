@@ -1,22 +1,24 @@
-%p
-  %span.backing.text-block You may have noticed that Oakland is exploding with music&mdash;jazz, rock, metal,indie, hip hop, reggae, electronic, bolero, bluegrass, and more. I'm stoked that there's so much great music around this city and wanted to make it easy for everyone to find out what's goin' on.Oak Ampd was created to help y'all out!
+#about
+  #about-text
+    %p
+      %span.backing.text-block You may have noticed that Oakland is exploding with music&mdash;jazz, rock, metal,indie, hip hop, reggae, electronic, bolero, bluegrass, and more. I'm stoked that there's so much great music around this city and wanted to make it easy for everyone to find out what's goin' on.Oak Ampd was created to help y'all out!
 
-%p
-  %span.backing.text-block
-    =# rendering paragraph so that period at end is not preceded by a space
-    = render "pages/oakland_local_paragraph"
+    %p
+      %span.backing.text-block
+        =# rendering paragraph so that period at end is not preceded by a space
+        = render "pages/oakland_local_paragraph"
 
-%p
-  %span.backing.text-block
-    Have a show you want added to the listings? Email
-    = mail_to "oakampd@gmail.com"
-    with the date, artists playing, venue,  price, and a link where folks can buy tickets or rsvp to your event.
-#attributions
-%h4
-  %span.backing.text-block Icons
-%p
-  %span.backing.text-block
-    = render partial: "pages/icon_attribution", locals: {icon: "Mail", slug: "edward", designer: "Edward Boatman"}
-%p
-  %span.backing.text-block
-    = render partial: "pages/icon_attribution", locals: {icon: "Twitter", slug: "mmpezzi", designer: "Maria Maldonado"}
+    %p
+      %span.backing.text-block
+        Have a show you want added to the listings? Email
+        = mail_to "oakampd@gmail.com"
+        with the date, artists playing, venue,  price, and a link where folks can buy tickets or rsvp to your event.
+  #attributions
+    %h5.headline
+      %span.backing.text-block Icons
+    %p
+      %span.backing.text-block
+        = render partial: "pages/icon_attribution", locals: {icon: "Mail", slug: "edward", designer: "Edward Boatman"}
+    %p
+      %span.backing.text-block
+        = render partial: "pages/icon_attribution", locals: {icon: "Twitter", slug: "mmpezzi", designer: "Maria Maldonado"}
