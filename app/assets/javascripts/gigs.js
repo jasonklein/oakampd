@@ -75,6 +75,7 @@ OakAmpdGigsJs.setup = function() {
   OakAmpdGigsJs.showdateDatepicker();
   OakAmpdGigsJs.isotopeSorting();
   OakAmpdGigsJs.bindBestInPlaceFields();
+  setTimeout(function() { $("#chronological").click() }, 70); // Gaps between listings are removed once sorted
 }
 
 $(OakAmpdGigsJs.setup);
