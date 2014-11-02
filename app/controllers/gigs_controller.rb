@@ -24,8 +24,8 @@ class GigsController < ApplicationController
   end
 
   def new_by_csv
-    count = create_gigs_from_file_and_return_count params[:gigs_csv].path
-    redirect_to root_path, notice: "#{count} gigs added!"
+    gigs_added, duplicates = create_gigs_from_file_and_return_counts params[:gigs_csv].path
+    redirect_to root_path, notice: "#{gigs_added} gig(s) added; #{duplicates} duplicate(s) found."
   end
 
   def show
@@ -77,20 +77,27 @@ class GigsController < ApplicationController
     ids
   end
 
-  def create_gigs_from_file_and_return_count(csv_path)
+  def create_gigs_from_file_and_return_counts(csv_path)
     require 'csv'
-
+    gigs_added = 0
+    empty_rows = 0
     gigs_to_add = CSV.read csv_path
     gigs_to_add.each do |gig|
-      new_gig = Gig.new
-      new_gig.showdate = Date.strptime(gig[0], "%m/%d/%Y")
-      new_gig.band = gig[1]
-      new_gig.venue_name = gig[2]
-      # new_gig.venue_address = gig[3]
-      new_gig.price = gig[3] ? gig[3] : -1
-      new_gig.url = gig[4]
-      new_gig.save
+      if !gig[0]
+        empty_rows += 1
+        next
+      else
+        showdate = gig[0].gsub("-","/")
+        band = gig[1]
+        venue_name = gig[2]
+        price = gig[3] ? gig[3] : -1
+        url = gig[4]
+        
+        new_gig = Gig.where(showdate: showdate, band: band, venue_name: venue_name, price: price, url: url).first_or_create
+        gigs_added += 1 if new_gig.created_at > 4.seconds.ago
+      end
     end
-    gigs_to_add.count
+    duplicates = gigs_to_add.count - empty_rows - gigs_added
+    return gigs_added, duplicates
   end
 end
