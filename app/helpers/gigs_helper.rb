@@ -40,7 +40,7 @@ module GigsHelper
   end
 
   def showdate_has_passed?(gig)
-    gig.showdate < Date.today
+    gig.showdate < Time.current.to_date
   end
 
   def gig_listing_classes(gig, last_ids)
