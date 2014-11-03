@@ -22,7 +22,7 @@
         .gig-listing-cell.band
           = best_in_place_if can?(:update, gig), gig, :band, display_as: :band_upcase, as: :input, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
         .gig-listing-cell.venue
-          = best_in_place_if can?(:update, gig), gig, :venue_name, as: :input, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
+          = best_in_place_if can?(:update, gig), gig, :venue_name, as: :input, display_as: :display_venue, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
         .gig-listing-cell.price
           - if can? :update, gig
             = best_in_place_if can?(:update, gig), gig, :price, display_as: :display_price, as: :input, class: "bpi-price", cancel_button: "C", cancel_button_class: "bip-cancel-btn"
