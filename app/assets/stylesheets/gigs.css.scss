@@ -35,12 +35,6 @@
     padding: $gig-listing-padding;
     font-size: $gig-listing-font-size;
     margin-bottom: 3px;
-    &.last-of-the-month {
-      border-bottom: none;
-      &.change-last-of-the-month-for-sorting {
-        border-bottom: 1px solid $base-border-color;
-      }
-    }
     &.past-showdate {
       .gig-listing-cell, .gig-month, .day-word, .day-number {
         color: rgba(255,255,255,0.4);
