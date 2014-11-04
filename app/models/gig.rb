@@ -31,7 +31,7 @@ class Gig < ActiveRecord::Base
     elsif (self.price && self.price < 0) || !self.price
       "TBA"
     else
-      self.price
+      "FREE"
     end
   end
 

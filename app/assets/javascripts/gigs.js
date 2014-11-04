@@ -30,7 +30,10 @@ OakAmpdGigsJs.isotopeSorting = function() {
         var price = $(g).find(".price").text();
         if(price.indexOf("TBA") > -1) {
           return parseFloat("-1");
-        } else {
+        } else if(price.indexOf("FREE") > -1) {
+          return parseFloat("0");
+        }
+          else {
           return parseFloat(price);
         }
       }
