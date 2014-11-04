@@ -37,4 +37,8 @@ module ApplicationHelper
     end
   end
 
+  def in_production?
+    Rails.env.production?
+  end
+
 end
