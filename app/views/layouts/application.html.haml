@@ -37,9 +37,11 @@
             %li.nav-link
               = link_to "ABOUT", page_path("about"), class: active_if_active("about")
             %li
-              %ul
+              %ul.contact-icons
                 %li
                   = mail_to "oakampd@gmail.com", render("layouts/email_icon")
+                %li
+                  = link_to render("layouts/facebook_icon"), "https://www.facebook.com/oakampd", target: "_blank"
                 %li
                   = link_to render("layouts/twitter_icon"), "https://twitter.com/oakampd", target: "_blank"
     .notices
