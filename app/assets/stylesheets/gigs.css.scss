@@ -8,6 +8,10 @@
     %button {
       @include button($button-style, $sort-button-color);
       color: $sort-button-text-color;
+      @include media($mobile) {
+        font-size: 14px;
+        padding: 3px 9px;
+      }
     }
     .is-checked {
       color: $sort-button-selected-text-color;
@@ -25,9 +29,16 @@
     padding: $first-of-the-month-padding;
     span {
       font-size: $month-font-size;
+      @include media($mobile) {
+        font-size: month-font-size-mobile;
+      }
     }
-    margin-bottom: 7px;
     margin-top: 15px;
+    margin-bottom: 7px;
+    @include media($mobile) {
+      /*margin-top: 3px;
+      margin-bottom: 1px;*/
+    }
   }
   .gig-listing {
     @include span-columns(8 of 8);
@@ -35,6 +46,15 @@
     padding: $gig-listing-padding;
     font-size: $gig-listing-font-size;
     margin-bottom: 3px;
+    @include media($mobile) {
+      border-bottom: 1px solid rgba(255,255,255,0.4);
+      &.last-of-the-month {
+        border-bottom: none;
+        &.change-last-of-the-month-for-sorting {
+          border-bottom: 1px solid $base-border-color;
+        }
+      }
+    }
     &.past-showdate {
       .gig-listing-cell, .gig-month, .day-word, .day-number {
         color: rgba(255,255,255,0.4);
