@@ -59,4 +59,12 @@
         = render "layouts/twitter_widget"
     %footer
       #footer-push
+      #footer-contacts-mobile
+        %ul.footer-contact-icons
+          %li
+            = mail_to "oakampd@gmail.com", render("layouts/email_icon")
+          %li
+            = link_to render("layouts/facebook_icon"), "https://www.facebook.com/oakampd", target: "_blank"
+          %li
+            = link_to render("layouts/twitter_icon"), "https://twitter.com/oakampd", target: "_blank"
     = render "analytics/google" if in_production?
