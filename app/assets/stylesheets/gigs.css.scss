@@ -35,10 +35,6 @@
     }
     margin-top: 15px;
     margin-bottom: 7px;
-    @include media($mobile) {
-      /*margin-top: 3px;
-      margin-bottom: 1px;*/
-    }
   }
   .gig-listing {
     @include span-columns(8 of 8);

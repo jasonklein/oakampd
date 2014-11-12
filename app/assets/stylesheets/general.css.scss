@@ -4,13 +4,18 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  @include media($mobile) {
+  @media (max-width: $max-width) {
     background: #000;
   }
 }
 
 body {
   @include outer-container;
+  @include media($below-desktop) {
+    .desktop-only {
+      display: none;
+    }
+  }
   background: transparentize($rich-blue, 1);
   color: #FFF;
   .backing {
@@ -24,6 +29,11 @@ body {
     padding-top: 30px;
     @include media($mobile) {
       padding-top: 10px;
+    }
+    @include media($phablet-to-desktop) {
+      padding-top: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
     }
     #user-info {
       text-align: right;
@@ -41,9 +51,16 @@ body {
         width: 100%;
         height: auto;
       }
+      @include media($phablet-to-desktop) {
+        @include span-columns(4);
+        margin-right: 0;
+        img {
+          width: 80%;
+        }
+      }
       @include media($mobile) {
-        @include row(table);
         @include span-columns(8);
+        @include row(table);
         background: url("oakampd-background-black.png");
         background-size: cover;
         text-align: center;
@@ -51,12 +68,24 @@ body {
           width: 65%;
         }
       }
+      @include media($wide-mobile) {
+        img {
+          width: 50%;
+        }
+      }
     }
     #header-right {
       @include span-columns(9);
+      @include media($phablet-to-desktop) {
+        @include span-columns(4);
+        float: right;
+        background: url("oakampd-background-black.png");
+        background-size: cover;
+      }
       @include media($mobile) {
-        @include row(table);
         @include span-columns(8);
+        @include row(table);
+        text-align: center;
       }
       #header-right-text {
         padding-left: 2%;
@@ -64,11 +93,15 @@ body {
           margin-bottom: 15px;
           font-weight: $base-font-weight;
         }
+        @include media($phablet-to-desktop) {
+          display: none;
+        }
         @include media($mobile) {
           display: none;
         }
       }
       nav {
+        display: none;
         font-family: $header-font-family;
         font-size: $base-font-size * 1.75;
         padding-bottom: 10px;
@@ -113,6 +146,9 @@ body {
               }
             }
           }
+        }
+        @include media($wide-mobile) {
+          font-size: 22px;
         }
       }
     }
