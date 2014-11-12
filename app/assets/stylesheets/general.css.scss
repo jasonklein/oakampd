@@ -35,6 +35,13 @@ body {
         width: 100%;
         height: auto;
       }
+      @include media($mobile) {
+        @include span-columns(8);
+        text-align: center;
+        img {
+          width: 80%;
+        }
+      }
     }
     #header-right {
       @include span-columns(9);
@@ -43,6 +50,9 @@ body {
         h5 {
           margin-bottom: 15px;
           font-weight: $base-font-weight;
+        }
+        @include media($mobile) {
+          display: none;
         }
       }
       nav {
@@ -90,12 +100,23 @@ body {
     #main-content {
       @include span-columns(8);
       vertical-align: top;
+      @include media($mobile) {
+        @include span-columns(8);
+        padding-left: 10px;
+        padding-right: 10px;
+      }
     }
     #gutter-column {
       @include span-columns(1);
+      @include media($mobile) {
+        display: none;
+      }
     }
     #side-content {
       @include span-columns(3);
+      @include media($mobile) {
+        display: none;
+      }
     }
   }
   footer {
