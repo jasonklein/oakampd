@@ -16,6 +16,11 @@ body {
       display: none;
     }
   }
+  @media (max-width: 725px) {
+    .phablet-up-only {
+      display: none;
+    }
+  }
   background: transparentize($rich-blue, 1);
   color: #FFF;
   .backing {
@@ -54,8 +59,11 @@ body {
       @include media($phablet-to-desktop) {
         @include span-columns(4);
         margin-right: 0;
+        background: url("oakampd-background-black.png");
+        background-size: cover;
+        text-align: center;
         img {
-          width: 80%;
+          width: 65%;
         }
       }
       @include media($mobile) {
@@ -79,8 +87,6 @@ body {
       @include media($phablet-to-desktop) {
         @include span-columns(4);
         float: right;
-        background: url("oakampd-background-black.png");
-        background-size: cover;
       }
       @include media($mobile) {
         @include span-columns(8);
@@ -94,14 +100,12 @@ body {
           font-weight: $base-font-weight;
         }
         @include media($phablet-to-desktop) {
-          display: none;
         }
         @include media($mobile) {
           display: none;
         }
       }
       nav {
-        display: none;
         font-family: $header-font-family;
         font-size: $base-font-size * 1.75;
         padding-bottom: 10px;
@@ -128,6 +132,49 @@ body {
               &:hover {
                 fill: $base-link-color;
               }
+            }
+          }
+        }
+        @include media($phablet-to-desktop) {
+          font-size: $base-font-size * 1.75;
+          line-height: 40px;
+          ul.nav-links {
+            display: initial;
+            padding-left: initial;
+            li.nav-link {
+              display: initial;
+              margin-right: 15px;
+            }
+            #contacts {
+              @include row(table);
+              ul {
+                display: initial;
+                li {
+                  display: initial;
+                }
+              }
+            }
+          }
+        }
+        @media (min-width: 501px) and (max-width: 725px) {
+          font-size: $base-font-size * 1.4;
+          line-height: 35px;
+          ul.nav-links li#contacts {
+            display: inline;
+            ul.contact-icons .icon {
+              width: 30px;
+              margin: 5px;
+              vertical-align: middle;
+            }
+          }
+        }
+        @media (min-width: 501px) and (max-width: 675px) {
+          ul.nav-links li#contacts {
+            display: block;
+            ul.contact-icons .icon {
+              width: 30px;
+              margin-left: 0px;
+              margin-right: 10px;
             }
           }
         }
@@ -159,7 +206,7 @@ body {
     color: #FF0000;
     margin-top: 30px;
     margin-bottom: 30px;
-    @include media($mobile) {
+    @include media($below-desktop) {
       margin-top: 5px;
       margin-bottom: 5px;
     }
@@ -169,7 +216,7 @@ body {
     #main-content {
       @include span-columns(8);
       vertical-align: top;
-      @include media($mobile) {
+      @include media($below-desktop) {
         @include span-columns(8);
         padding-left: $mobile-padding;
         padding-right: $mobile-padding;
@@ -177,13 +224,13 @@ body {
     }
     #gutter-column {
       @include span-columns(1);
-      @include media($mobile) {
+      @include media($below-desktop) {
         display: none;
       }
     }
     #side-content {
       @include span-columns(3);
-      @include media($mobile) {
+      @include media($below-desktop) {
         display: none;
       }
     }
@@ -192,30 +239,34 @@ body {
     #footer-push {
       width: 100%;
       height: 150px;
-      @include media($mobile) {
+      @include media($below-desktop) {
         height: 50px;
       }
     }
     #footer-contacts-mobile {
-      text-align: center;
-      padding-left: $mobile-padding;
-      padding-right: $mobile-padding;
-      ul {
-        li {
-          display: inline-block;
-          vertical-align: middle;
-          margin: 0 10px;
-          .icon {
-            fill: $hover-link-color;
-            width: 40px;
-            height: auto;
-            &:hover {
-              fill: $base-link-color;
+      display: none;
+      @include media($mobile) {
+        display: initial;
+        text-align: center;
+        padding-left: $mobile-padding;
+        padding-right: $mobile-padding;
+        ul {
+          li {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 10px;
+            .icon {
+              fill: $hover-link-color;
+              width: 40px;
+              height: auto;
+              &:hover {
+                fill: $base-link-color;
+              }
             }
           }
         }
+        margin-bottom: 20px;
       }
-      margin-bottom: 20px;
     }
   }
 }

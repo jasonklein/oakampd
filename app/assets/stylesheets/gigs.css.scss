@@ -42,7 +42,7 @@
     padding: $gig-listing-padding;
     font-size: $gig-listing-font-size;
     margin-bottom: 3px;
-    @include media($mobile) {
+    @include media($below-desktop) {
       border-bottom: 1px solid rgba(255,255,255,0.4);
       &.last-of-the-month {
         border-bottom: none;
@@ -98,12 +98,18 @@
       }
       .band {
         @include span-columns(3 of 8);
+        @include media($phablet-to-desktop) {
+          @include span-columns(4);
+        }
       }
       .venue {
         @include span-columns(2 of 8);
       }
       .price {
         @include span-columns(2 of 8);
+        @include media($phablet-to-desktop) {
+          @include span-columns(1);
+        }
         span {
           margin-left: 50%;
           .price-url {
