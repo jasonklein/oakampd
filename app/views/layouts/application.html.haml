@@ -60,7 +60,6 @@
         = render "side_content/placeholder"
         = render "layouts/twitter_widget"
     %footer
-      #footer-push
       #footer-contacts-mobile
         %ul.footer-contact-icons
           %li
@@ -69,4 +68,7 @@
             = link_to render("layouts/facebook_icon"), "https://www.facebook.com/oakampd", target: "_blank"
           %li
             = link_to render("layouts/twitter_icon"), "https://twitter.com/oakampd", target: "_blank"
+      #footer-push
+        %span.backing
+          = render "layouts/builder_attribution"
     = render "analytics/google" if in_production?
