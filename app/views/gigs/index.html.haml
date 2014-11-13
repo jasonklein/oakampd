@@ -30,7 +30,7 @@
           - else
             %span
               = gig.url && !showdate_has_passed?(gig) ? link_to(gig.display_price, gig.url, class: "price-url", target: "_blank") : gig.display_price
-      = display_ad_if_proper_index_and_mobile(gig_index, @ads)
+      =# display_ad_if_proper_index_and_mobile(gig_index, @ads)
       - if can?(:update, gig)
         - if gig.url
           .gig-url
