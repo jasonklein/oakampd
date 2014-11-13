@@ -56,6 +56,17 @@ module GigsHelper
     classes_array.join " "
   end
 
+  def display_ad_if_proper_index_and_mobile(index, ads)
+    if index > 0 && (index % 15 == 0) && ads.any?
+      ad_parts = ads.sample
+      @ads = ads.reject { |ad| ad == ad_parts}
+      render partial: "layouts/mobile_ad", locals: {ad_image: ad_parts[0], ad_url: ad_parts[1]}
+    else
+      return
+    end
+  end
+
+
 end
 
 

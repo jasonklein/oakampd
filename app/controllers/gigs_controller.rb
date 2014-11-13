@@ -7,6 +7,7 @@ class GigsController < ApplicationController
     @gigs = Gig.all
     @first_ids = firsts_or_lasts_of_the_month_ids(@gigs)
     @last_ids = firsts_or_lasts_of_the_month_ids(@gigs.reverse)
+    @ads = ads
   end
 
   def new
@@ -99,5 +100,12 @@ class GigsController < ApplicationController
     end
     duplicates = gigs_to_add.count - empty_rows - gigs_added
     return gigs_added, duplicates
+  end
+
+  def ads
+    [["block-ad-bagrc.jpg", "http://www.bayareagirlsrockcamp.org/"],
+    ["block-ad-econo-jam.png", "https://www.facebook.com/EconoJamRecords"],
+    ["block-ad-mall-walk.jpg", "http://mallwalkband.com/"],
+    ["block-ad-oakland-drops.jpg", "http://www.oaklanddropsbeats.com/"]]
   end
 end
