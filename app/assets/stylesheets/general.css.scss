@@ -4,7 +4,7 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  @media (max-width: $max-width) {
+  @media (max-width: 1024px) {
     background: #000;
   }
 }
