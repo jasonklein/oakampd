@@ -44,7 +44,7 @@
     margin-bottom: 3px;
     @include media($below-desktop) {
       border-bottom: 1px solid rgba(255,255,255,0.4);
-      &.last-of-the-month {
+      &.last-of-the-month, &.has-ad {
         border-bottom: none;
         &.change-last-of-the-month-for-sorting {
           border-bottom: 1px solid $base-border-color;
@@ -138,6 +138,21 @@
     }
     .gig-delete {
       @include row(table);
+    }
+  }
+  .mobile-ad {
+    display: none;
+    @include media($below-desktop) {
+      display: initial;
+      @include span-columns(8);
+      @include row(table);
+      margin-top: $mobile-ad-margin;
+      text-align: center;
+      img {
+        width: 80%;
+        height: auto;
+        margin: 0 auto;
+      }
     }
   }
 }

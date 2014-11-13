@@ -43,10 +43,14 @@ module GigsHelper
     gig.showdate < Time.current.to_date
   end
 
-  def gig_listing_classes(gig, last_ids)
+  def gig_listing_classes(gig, last_ids, index, ads)
     classes_array = []
     if last_of_the_month? gig.id, last_ids
       classes_array << "last-of-the-month"
+    end
+
+    if proper_index_and_mobile_and_ads?(index, ads)
+      classes_array << "has-ad"
     end
 
     if showdate_has_passed? gig
@@ -56,8 +60,12 @@ module GigsHelper
     classes_array.join " "
   end
 
+  def proper_index_and_mobile_and_ads?(index, ads)
+    (index > 0) && (index % 15 == 0) && ads.any?
+  end
+
   def display_ad_if_proper_index_and_mobile(index, ads)
-    if index > 0 && (index % 15 == 0) && ads.any?
+    if proper_index_and_mobile_and_ads?(index, ads)
       ad_parts = ads.sample
       @ads = ads.reject { |ad| ad == ad_parts}
       render partial: "layouts/mobile_ad", locals: {ad_image: ad_parts[0], ad_url: ad_parts[1]}

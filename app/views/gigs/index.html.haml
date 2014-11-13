@@ -11,11 +11,12 @@
 %br
 #gigs-listings
   - @gigs.each do |gig|
+    - gig_index = @gigs.index(gig)
     - if @first_ids.include? gig.id
       .first-of-the-month
         %span.backing
           = display_month(gig)
-    .gig-listing{id: "gig-listing-#{gig.id}", class: "#{gig_listing_classes(gig, @last_ids)}"}
+    .gig-listing{id: "gig-listing-#{gig.id}", class: "#{gig_listing_classes(gig, @last_ids, gig_index, @ads)}"}
       .gig-details.backing
         .gig-listing-cell.showdate
           = best_in_place_if can?(:update, gig), gig, :showdate, display_as: :display_showdate, as: :date
@@ -29,7 +30,7 @@
           - else
             %span
               = gig.url && !showdate_has_passed?(gig) ? link_to(gig.display_price, gig.url, class: "price-url", target: "_blank") : gig.display_price
-      = display_ad_if_proper_index_and_mobile(@gigs.index(gig), @ads)
+      = display_ad_if_proper_index_and_mobile(gig_index, @ads)
       - if can?(:update, gig)
         - if gig.url
           .gig-url
