@@ -49,9 +49,9 @@ module GigsHelper
       classes_array << "last-of-the-month"
     end
 
-    if proper_index_and_mobile_and_ads?(index, ads)
-      classes_array << "has-ad"
-    end
+    # if proper_index_and_mobile_and_ads?(index, ads)
+    #   classes_array << "has-ad"
+    # end
 
     if showdate_has_passed? gig
       classes_array << "past-showdate"
