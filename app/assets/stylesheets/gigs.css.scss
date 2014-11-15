@@ -74,6 +74,9 @@
       }
       .showdate {
         @include span-columns(1 of 8);
+        @include media($mobile) {
+          @include span-columns(2);
+        }
         div {
           display: inline-block;
           &.gig-month {
@@ -81,9 +84,6 @@
           }
           &.day-word {
             width: 50%;
-            @include media($mobile) {
-              display: none;
-            }
           }
         }
         &.change-showdate-for-sorting {
@@ -110,8 +110,14 @@
         @include media($phablet-to-desktop) {
           @include span-columns(1);
         }
+        @include media($mobile) {
+          @include span-columns(1);
+        }
         span {
           margin-left: 50%;
+          @include media($mobile) {
+            margin-left: 0;
+          }
           .price-url {
             font-weight: 400;
           }
