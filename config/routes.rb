@@ -1,7 +1,16 @@
 Oakampd::Application.routes.draw do
 
+  get "venues/index"
+
+  get "venues/new"
+
+  get "venues/edit"
+
+  get "venues/destroy"
+
   resources :gigs
   resources :users, only: [:new, :show]
+  resources :venues, only: [:index, :new, :edit]
 
   root to: "gigs#index"
 
