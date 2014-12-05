@@ -12,6 +12,7 @@ class Ability
       elsif user.role? :assistant
         can :manage, User, id: user.id
         can :manage, Gig
+        can :manage, Venue
       else
         can :read, :all
         cannot :read, User
