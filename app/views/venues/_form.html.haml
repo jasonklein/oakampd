@@ -1,11 +1,11 @@
 = form_for @venue do |f|
-  = f.label :name
+  = f.label :name, form_label_with_backing(:name)
   = f.text_field :name
   %br
-  = f.label :address
+  = f.label :address, form_label_with_backing(:address)
   = f.text_field :address
   %br
-  = f.label :zipcode
+  = f.label :zipcode, form_label_with_backing(:zipcode)
   = f.text_field :zipcode
   %br
   = f.submit
