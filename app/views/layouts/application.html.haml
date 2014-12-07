@@ -6,7 +6,8 @@
       = yield(:title).empty? ? 'OAK AMPD' : yield(:title)
     %link{href: 'http://fonts.googleapis.com/css?family=Roboto+Slab:400,300|Roboto:400,300', rel:'stylesheet', type: 'text/css'}
     = stylesheet_link_tag 'application', :media => 'all'
-    = render "analytics_and_maps/google_maps" if venues_controller?
+    = render "analytics_and_maps/google_maps" if params[:controller] == "venues"
+    =# logic in the view above because venues_controller? method throws undefined method error when visiting high voltage pages
     = javascript_include_tag 'application'
     = csrf_meta_tags
     %meta{name: 'viewport', content: 'width=device-width, initial-scale=1'}

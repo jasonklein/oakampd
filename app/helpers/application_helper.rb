@@ -17,7 +17,7 @@ module ApplicationHelper
 
   def active_if_active(view)
     controller = params[:controller]
-    if controller == "gigs" && view == "gigs"
+    if controller == view
       "active"
     else
       if controller == "high_voltage/pages"
@@ -41,8 +41,8 @@ module ApplicationHelper
     Rails.env.production?
   end
 
-  def venues_controller?
-    params[:controller] == "venues"
-  end
+  # def venues_controller?
+  #   params[:controller] == "venues"
+  # end
 
 end
