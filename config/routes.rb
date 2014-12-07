@@ -2,7 +2,7 @@ Oakampd::Application.routes.draw do
 
   resources :gigs
   resources :users, only: [:new, :show]
-  resources :venues, only: [:index, :new, :edit]
+  resources :venues
 
   root to: "gigs#index"
 

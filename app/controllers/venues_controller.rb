@@ -9,6 +9,14 @@ class VenuesController < ApplicationController
   def new
   end
 
+  def create
+    if @venue.save
+      redirect_to venues_path, notice: "Venue added."
+    else
+      render "new"
+    end
+  end
+
   def edit
   end
 
