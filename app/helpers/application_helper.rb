@@ -41,4 +41,8 @@ module ApplicationHelper
     Rails.env.production?
   end
 
+  def venues_controller?
+    params[:controller] == "venues"
+  end
+
 end

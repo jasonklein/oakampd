@@ -1,2 +1,13 @@
-%h1 Venues#index
-%p Find me in app/views/venues/index.html.haml
+- @venues.each do |venue|
+  .venue-listing
+    .venue-name
+      %span.backing
+        = venue.name
+    %address
+      .street-address
+        %span.backing
+          = venue.address
+      .zipcode
+        %span.backing
+          = venue.zipcode
+
