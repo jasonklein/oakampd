@@ -11,21 +11,24 @@ OakAmpdVenuesJs.LoadVenuesMap = function() {
   var initialize = function() {
     var mapOptions = {
       center: {lat: 37.811453, lng: -122.274627},
-      zoom: 8
+      zoom: 14
     };
-    var map = new google.maps.map($("#map-canvas"), mapOptions);
+    var map = new google.maps.Map($("#map-canvas")[0], mapOptions);
     addMarkers(map);
   };
 
   var addMarkers = function(map) {
-    var geocoder = new google.maps.Geocoder();
-    var showMarker = function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        var marker = new google.maps.Marker({
-          position: results[0],
-        })
-      }
-    };
+    $('address').each(function(i, el) {
+      var latitude = $(this).data("latitude");
+      var longitude = $(this).data("longitude");
+      var title = $(this).data("title");
+      var position = new google.maps.LatLng(latitude, longitude);
+      var marker = new google.maps.Marker({
+        position: position,
+        map: map,
+        title: title
+      });
+    });
   };
 
 
@@ -43,7 +46,7 @@ OakAmpdVenuesJs.LoadVenuesMap = function() {
 
 
 OakAmpdVenuesJs.setup = function() {
-
+  OakAmpdVenuesJs.LoadVenuesMap();
 };
 
 

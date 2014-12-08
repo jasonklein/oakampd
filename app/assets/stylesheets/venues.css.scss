@@ -11,3 +11,18 @@
     color: $base-link-color;
   }
 }
+
+#venues-container {
+  #venues-listings {
+    @include span-columns(2);
+    vertical-align: top;
+  }
+  #map-canvas-wrapper {
+    @include span-columns(6);
+    #map-canvas {
+      max-width: 100%;
+      height: 400px;
+    }
+  }
+}
+

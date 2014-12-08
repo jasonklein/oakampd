@@ -1,13 +1,17 @@
-- @venues.each do |venue|
-  .venue-listing
-    .venue-name
-      %span.backing
-        = venue.name
-    %address
-      .street-address
-        %span.backing
-          = venue.address
-      .zipcode
-        %span.backing
-          = venue.zipcode
+#venues-container
+  #venues-listings
+    - @venues.each do |venue|
+      .venue-listing
+        .venue-name
+          %span.backing
+            = venue.name
+        %address{data: {latitude: venue.latitude, longitude: venue.longitude, title: venue.name}}
+          .street-address
+            %span.backing
+              = venue.address
+          .zipcode
+            %span.backing
+              = venue.zipcode
+  #map-canvas-wrapper
+    #map-canvas
 
