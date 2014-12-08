@@ -11,7 +11,7 @@ OakAmpdVenuesJs.LoadVenuesMap = function() {
   var initialize = function() {
     var mapOptions = {
       center: {lat: 37.811453, lng: -122.274627},
-      zoom: 14
+      zoom: 13
     };
     var map = new google.maps.Map($("#map-canvas")[0], mapOptions);
     addMarkers(map);
