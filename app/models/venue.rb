@@ -7,6 +7,8 @@ class Venue < ActiveRecord::Base
   geocoded_by :full_address
   after_validation :geocode
 
+  default_scope order("name ASC")
+
   def full_address
     [name, address, "California", zipcode].compact.join(",")
   end

@@ -12,5 +12,9 @@ module VenuesHelper
     render(partial: "venues/listing_phone", locals: {phone: phone}) if venue.phone
   end
 
+  def stripped_phone(phone)
+    phone.gsub(/[-.()]/, '')
+  end
+
 
 end

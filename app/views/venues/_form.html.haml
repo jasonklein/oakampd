@@ -8,4 +8,10 @@
   = f.label :zipcode, form_label_with_backing(:zipcode)
   = f.text_field :zipcode
   %br
+  = f.label :phone, form_label_with_backing(:phone)
+  = f.text_field :phone, placeholder: "Not required"
+  %br
+  = f.label :url, form_label_with_backing(:url)
+  = f.text_field :url, placeholder: "Not required"
+  %br
   = f.submit

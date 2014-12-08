@@ -16,6 +16,7 @@ Oakampd::Application.routes.draw do
 
   post "gigs/new_by_csv", to: "gigs#new_by_csv"
   delete "gigs/:id", to: "gigs#destroy", as: "delete_gig"
+  delete "venues/:id", to: "venues#destroy", as: "delete_venue"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

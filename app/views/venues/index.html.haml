@@ -1,14 +1,24 @@
 #map-canvas-wrapper
   #map-canvas
 #venues-listings
-  #venues-listings-inner
-    - @venues.each do |venue|
-      .venue-listing.backing
+  - @venues.each do |venue|
+    .venue-listing.backing
+      - if can?(:update, venue)
+        = best_in_place venue, :name, as: :input, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
+        %br
+        = best_in_place venue, :url, place_holder: "Add URL", as: :input, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
+        %br
+        = best_in_place venue, :phone, place_holder: "Add Phone", as: :input, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
+      - else
         = display_name(venue)
         = display_phone_if_present(venue)
-        %address{data: {latitude: venue.latitude, longitude: venue.longitude, title: venue.name}}
-          .street-address
-            = venue.address
-          .zipcode
-            = venue.zipcode
+      %address{data: {latitude: venue.latitude, longitude: venue.longitude, title: venue.name}}
+        .street-address
+          = best_in_place_if can?(:update, venue), venue, :address, as: :input, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
+        .zipcode
+          = best_in_place_if can?(:update, venue), venue, :zipcode, as: :input, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
+      - if can?(:update, venue)
+        = button_to "DELETE", delete_venue_path(venue), method: :delete, confirm: "Delete venue?"
+
+
 

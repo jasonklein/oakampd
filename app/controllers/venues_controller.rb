@@ -20,6 +20,20 @@ class VenuesController < ApplicationController
   def edit
   end
 
+  def update
+    respond_to do |format|
+      if @venue.update_attributes(params[:venue])
+        format.html { redirect_to root_path, :notice => 'Venue was successfully updated.' }
+        format.json { respond_with_bip @venue }
+      else
+        format.html { render :action => "edit" }
+        format.json { respond_with_bip(@venue) }
+      end
+    end
+  end
+
   def destroy
+    @venue.destroy
+    redirect_to venues_path, notice: "Venue deleted."
   end
 end
