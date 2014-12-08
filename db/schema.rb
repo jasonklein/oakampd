@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141208002926) do
+ActiveRecord::Schema.define(:version => 20141208021855) do
 
   create_table "gigs", :force => true do |t|
     t.date     "showdate"
@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(:version => 20141208002926) do
     t.datetime "updated_at", :null => false
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "url"
+    t.string   "phone"
   end
 
 end
