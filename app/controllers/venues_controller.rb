@@ -23,7 +23,7 @@ class VenuesController < ApplicationController
   def update
     respond_to do |format|
       if @venue.update_attributes(params[:venue])
-        format.html { redirect_to root_path, :notice => 'Venue was successfully updated.' }
+        format.html { redirect_to venues_path, :notice => 'Venue was successfully updated.' }
         format.json { respond_with_bip @venue }
       else
         format.html { render :action => "edit" }

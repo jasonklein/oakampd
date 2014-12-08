@@ -9,12 +9,11 @@ module VenuesHelper
   end
 
   def display_phone_if_present(venue)
-    render(partial: "venues/listing_phone", locals: {phone: phone}) if venue.phone
+    render(partial: "venues/listing_phone", locals: {phone: venue.phone}) if venue.phone
   end
 
   def stripped_phone(phone)
     phone.gsub(/[-.()]/, '')
   end
-
 
 end

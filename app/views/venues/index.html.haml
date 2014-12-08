@@ -2,7 +2,7 @@
   #map-canvas
 #venues-listings
   - @venues.each do |venue|
-    .venue-listing.backing
+    .venue-listing{class: "backing", id: "venue_#{venue.id}"}
       - if can?(:update, venue)
         = best_in_place venue, :name, as: :input, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
         %br
@@ -12,11 +12,11 @@
       - else
         = display_name(venue)
         = display_phone_if_present(venue)
-      %address{data: {latitude: venue.latitude, longitude: venue.longitude, title: venue.name}}
+      %address{data: {latitude: venue.latitude, longitude: venue.longitude, title: venue.name, id: venue.id}}
         .street-address
-          = best_in_place_if can?(:update, venue), venue, :address, as: :input, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
+          = venue.address
         .zipcode
-          = best_in_place_if can?(:update, venue), venue, :zipcode, as: :input, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
+          = venue.zipcode
       - if can?(:update, venue)
         = button_to "DELETE", delete_venue_path(venue), method: :delete, confirm: "Delete venue?"
 

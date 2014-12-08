@@ -22,11 +22,16 @@ OakAmpdVenuesJs.LoadVenuesMap = function() {
       var latitude = $(this).data("latitude");
       var longitude = $(this).data("longitude");
       var title = $(this).data("title");
+      var venueListingId = "venue_" + $(this).data("id");
       var position = new google.maps.LatLng(latitude, longitude);
       var marker = new google.maps.Marker({
         position: position,
         map: map,
         title: title
+      });
+      console.log(venueListingId);
+      google.maps.event.addListener(marker, 'click', function() {
+        $('html, body').animate({ 'scrollTop': $('#' + venueListingId).offset().top }, 1000);
       });
     });
   };
