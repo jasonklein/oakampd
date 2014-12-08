@@ -1,7 +1,8 @@
 class Venue < ActiveRecord::Base
-  attr_accessible :address, :name, :zipcode
+  attr_accessible :address, :name, :zipcode, :phone, :url
 
   validates :name, :address, :zipcode, presence: true
+  validates :phone, numericality: {only_integer: true}, allow_nil: true
 
   geocoded_by :full_address
   after_validation :geocode

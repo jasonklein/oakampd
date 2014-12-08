@@ -20,8 +20,16 @@
   margin-bottom: 30px;
 }
 #venues-listings {
-  .venue-listing {
-    @include span-columns(2);
+  #venues-listings-inner {
+    margin: 0 auto;
+    .venue-listing {
+      display: inline-block;
+      min-width: 30%;
+      height: 150px;
+      margin-bottom: 5px;
+      padding-left: 10px;
+      padding-top: 10px;
+    }
   }
 }
 
