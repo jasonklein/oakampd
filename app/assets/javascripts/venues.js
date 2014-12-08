@@ -29,15 +29,15 @@ OakAmpdVenuesJs.LoadVenuesMap = function() {
         map: map,
         title: title
       });
-      console.log(venueListingId);
       google.maps.event.addListener(marker, 'click', function() {
         $('html, body').animate({ 'scrollTop': $('#' + venueListingId).offset().top }, 1000);
       });
     });
   };
 
-
-  google.maps.event.addDomListener(window, 'load', initialize);
+  if(window.innerWidth > 500) {
+    google.maps.event.addDomListener(window, 'load', initialize);
+  }
 };
 
 
