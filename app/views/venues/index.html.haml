@@ -4,6 +4,8 @@
   - @venues.each do |venue|
     .venue-listing{class: "backing", id: "venue_#{venue.id}"}
       - if can?(:update, venue)
+        = button_to "DELETE", delete_venue_path(venue), method: :delete, confirm: "Delete venue?", class: "venue-delete-btn"
+      - if can?(:update, venue)
         = best_in_place venue, :name, as: :input, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
         %br
         = best_in_place venue, :url, place_holder: "Add URL", as: :input, cancel_button: "CANCEL", cancel_button_class: "bip-cancel-btn"
@@ -17,8 +19,6 @@
           = venue.address
         .zipcode
           = venue.zipcode
-      - if can?(:update, venue)
-        = button_to "DELETE", delete_venue_path(venue), method: :delete, confirm: "Delete venue?"
 
 
 
