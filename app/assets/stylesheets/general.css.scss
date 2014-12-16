@@ -24,7 +24,7 @@ body {
   background: transparentize($rich-blue, 1);
   color: #FFF;
   .backing {
-    background-color: rgba(0,0,0,0.89);
+    background-color: $backing-background;
   }
   .text-block {
     padding-left: 5px;

@@ -30,10 +30,12 @@ $light-green: #E6EFC2;
 $rich-blue: #0F6C93;
 $teal: #7DF9DA;
 $super-light-teal: #F0FEFB;
+$translucent-black: rgba(0,0,0,0.89);
 
 // Body Color
 $base-body-color: $super-light-teal;
 $oakampd-logo-color: $teal;
+$backing-background: $translucent-black;
 
 //  Font Colors
 $base-font-color: $dark-gray;
