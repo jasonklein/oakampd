@@ -19,10 +19,10 @@ OakAmpdVenuesJs.LoadVenuesMap = function() {
 
   var addMarkers = function(map) {
     $('address').each(function(i, el) {
-      var latitude = $(this).data("latitude");
-      var longitude = $(this).data("longitude");
-      var title = $(this).data("title");
-      var venueListingId = "venue_" + $(this).data("id");
+      var latitude = $(el).data("latitude");
+      var longitude = $(el).data("longitude");
+      var title = $(el).data("title");
+      var venueListingId = "#venue_" + $(el).data("id");
       var position = new google.maps.LatLng(latitude, longitude);
       var marker = new google.maps.Marker({
         position: position,
@@ -30,7 +30,9 @@ OakAmpdVenuesJs.LoadVenuesMap = function() {
         title: title
       });
       google.maps.event.addListener(marker, 'click', function() {
-        $('html, body').animate({ 'scrollTop': $('#' + venueListingId).offset().top }, 1000);
+        $('.selected-venue').attr('class', 'backing venue-listing');
+        $('html, body').animate({ 'scrollTop': $(venueListingId).offset().top - 8 }, 1000);
+        $(venueListingId).attr('class', 'venue-listing selected-venue');
       });
     });
   };
@@ -40,21 +42,9 @@ OakAmpdVenuesJs.LoadVenuesMap = function() {
   }
 };
 
-
-
-
-
-
-
-
-
-
-
 OakAmpdVenuesJs.setup = function() {
   OakAmpdVenuesJs.LoadVenuesMap();
 };
-
-
 
 $(OakAmpdVenuesJs.setup);
 

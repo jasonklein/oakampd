@@ -2,6 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@-webkit-keyframes highlight-venue {
+  0% { background-color: $backing-background; }
+  50% { background-color: $highlight-half-color; }
+  100% { background-color: $highlight-full-color; }
+}
+
+.selected-venue {
+  background-color: $highlight-full-color;
+  -webkit-animation: highlight-venue 1500ms ease-in;
+  .venue-name, a {
+    color: black;
+  }
+  a:hover {
+    color: $hover-link-color;
+  }
+
+  a:active, a:focus {
+    color: $hover-link-color;
+    outline: none;
+  }
+}
 
 #new_venue {
   textarea,
