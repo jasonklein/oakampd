@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// Selected Venue Styling
+
 @-webkit-keyframes highlight-venue {
   0% { background-color: $backing-background; }
   50% { background-color: $highlight-half-color; }
@@ -23,6 +25,8 @@
     outline: none;
   }
 }
+
+// General Venues Styling
 
 #new_venue {
   textarea,
