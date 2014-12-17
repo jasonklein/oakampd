@@ -9,10 +9,28 @@
   50% { background-color: $highlight-half-color; }
   100% { background-color: $highlight-full-color; }
 }
+@-moz-keyframes highlight-venue {
+  0% { background-color: $backing-background; }
+  50% { background-color: $highlight-half-color; }
+  100% { background-color: $highlight-full-color; }
+}
+@-o-keyframes highlight-venue {
+  0% { background-color: $backing-background; }
+  50% { background-color: $highlight-half-color; }
+  100% { background-color: $highlight-full-color; }
+}
+@keyframes highlight-venue {
+  0% { background-color: $backing-background; }
+  50% { background-color: $highlight-half-color; }
+  100% { background-color: $highlight-full-color; }
+}
 
 .selected-venue {
   background-color: $highlight-full-color;
-  -webkit-animation: highlight-venue 1500ms ease-in;
+  -webkit-animation: highlight-venue 1200ms ease-in;
+  -moz-animation: highlight-venue 1200ms ease-in;
+  -o-animation: highlight-venue 1200ms ease-in;
+  animation: highlight-venue 1200ms ease-in;
   .venue-name, a {
     color: black;
   }
