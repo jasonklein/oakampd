@@ -38,7 +38,7 @@ class GigsController < ApplicationController
   def update
     respond_to do |format|
       if @gig.update_attributes(params[:gig])
-        format.html { redirect_to root_path, :notice => 'Gig was successfully updated.' }
+        format.html { redirect_to root_path, :notice => "Gig was successfully updated." }
         format.json { respond_with_bip @gig }
       else
         format.html { render :action => "edit" }
