@@ -1,0 +1,30 @@
+= form_for @band do |f|
+  #new-band-row-1
+    #band-name
+      = f.label :name, form_label_with_backing(:name)
+      = f.text_field :name, required: true
+  #new-band-row-2
+    #band-image
+      = f.label :image, form_label_with_backing(:image)
+      = f.file_field :image
+    #band-image-credit
+      = f.label :image_credit, form_label_with_backing(:image_credit)
+      = f.text_field :image_credit
+  #new-band-row-3
+    #band-website
+      = f.label :website, form_label_with_backing(:website)
+      = f.text_field :website
+    #band-bandcamp
+      = f.label :bandcamp, form_label_with_backing(:bandcamp)
+      = f.text_field :bandcamp
+  #new-band-row-4
+    #band-facebook
+      = f.label :facebook, form_label_with_backing(:facebook)
+      = f.text_field :facebook
+    #band-soundcloud
+      = f.label :soundcloud, form_label_with_backing(:soundcloud)
+      = f.text_field :soundcloud
+  %br
+  = f.submit "Add Band"
+
+
