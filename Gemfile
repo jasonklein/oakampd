@@ -6,7 +6,6 @@ gem 'rails', '3.2.18'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-gem 'faker'
 
 gem 'devise'
 gem 'cancan'
@@ -57,6 +56,7 @@ gem 'jquery-rails'
 
 group :development, :test do
 
+  gem 'faker'
   gem 'pry-rails'
   gem 'pry-stack_explorer'
   gem 'binding_of_caller'
