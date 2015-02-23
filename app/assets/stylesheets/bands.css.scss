@@ -1,3 +1,20 @@
 // Place all the styles related to the bands controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#new_band {
+  textarea,
+  #{$all-text-inputs},
+  select[multiple=multiple] {
+    width: 90%;
+    color: $base-link-color;
+  }
+  #new-band-row-1, #new-band-row-2, #new-band-row-3, #new-band-row-4 {
+    @include row(table);
+  }
+  #band-image, #band-image-credit,
+  #band-website, #band-bandcamp,
+  #band-facebook, #band-soundcloud {
+    @include span-columns(4 of 8);
+  }
+}

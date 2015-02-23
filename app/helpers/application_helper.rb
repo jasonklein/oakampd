@@ -32,6 +32,8 @@ module ApplicationHelper
       raw "<span class='backing'>Showdate (YY-MM-DD)</span>"
     when :url
       raw "<span class='backing'>URL</span>"
+    when :image_credit
+      raw "<span class='backing'>Image Credit</span>"
     else
       raw "<span class='backing'>#{label.capitalize}</span>"
     end
