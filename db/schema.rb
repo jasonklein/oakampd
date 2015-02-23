@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141208021855) do
+ActiveRecord::Schema.define(:version => 20150223201910) do
+
+  create_table "bands", :force => true do |t|
+    t.string   "name"
+    t.string   "image"
+    t.string   "image_credit"
+    t.string   "website"
+    t.string   "bandcamp"
+    t.string   "facebook"
+    t.string   "soundcloud"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "gigs", :force => true do |t|
     t.date     "showdate"
@@ -23,6 +35,42 @@ ActiveRecord::Schema.define(:version => 20141208021855) do
     t.string   "venue_name"
     t.string   "venue_address"
   end
+
+  create_table "keywords", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "keywords_posts", :force => true do |t|
+    t.integer  "keyword_id"
+    t.integer  "post_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "keywords_posts", ["keyword_id"], :name => "index_keywords_posts_on_keyword_id"
+  add_index "keywords_posts", ["post_id"], :name => "index_keywords_posts_on_post_id"
+
+  create_table "posts", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.string   "primary_image"
+    t.integer  "layout",        :default => 1
+    t.datetime "publish_date"
+    t.boolean  "published",     :default => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+  end
+
+  create_table "secondaryimages", :force => true do |t|
+    t.string   "url"
+    t.integer  "post_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "secondaryimages", ["post_id"], :name => "index_secondaryimages_on_post_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",      :null => false

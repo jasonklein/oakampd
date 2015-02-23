@@ -13,9 +13,11 @@ class Ability
         can :manage, User, id: user.id
         can :manage, Gig
         can :manage, Venue
+        can :manage, Band
       else
         can :read, :all
         cannot :read, User
+        cannot :read, Band
       end
     #
     # The first argument to `can` is the action you are giving the user 
