@@ -14,24 +14,36 @@ var OakAmpdBandsJs = OakAmpdBandsJs || {};
 //   }, 500);
 // }
 
-OakAmpdBandsJs.resizeBandListings = function() {
-  $(".band-listing-wrapper").click(function() {
+OakAmpdBandsJs.attachBandListingsClickHandlers = function() {
+  $(".standard").click(function() {
     var img = $(this).find("img")[0];
     var thumgImgSrc = $(img).attr("src");
+    var imgParent = $(img).parent();
+    var fullImgSrc = $(imgParent).data("full");
+    var oldProminent = $("#bands-listings").find(".prominent")[0];
+    var oldProminentClose = $(oldProminent).children(".close")[0];
+    var newProminentClose = $(this).children(".close")[0];
 
-    if($(this).hasClass("standard")) {
-      var imgParent = $(img).parent();
-      var fullImgSrc = $(imgParent).data("full");
-      $(img).attr("src", fullImgSrc);
-      var oldProminent = $("#bands-listings").find(".prominent")[0];
-      $(oldProminent).removeClass("prominent").addClass("standard");
-      $(this).removeClass("standard").addClass("prominent");
-    }
+    $(img).attr("src", fullImgSrc);
+    $(oldProminentClose).css("display", "none");
+    $(oldProminent).removeClass("prominent").addClass("standard");
+    $(this).removeClass("standard").addClass("prominent");
+    $(newProminentClose).css("display", "initial");
+  });
+};
+
+OakAmpdBandsJs.attachProminentCloseClickHandlers = function() {
+  $(".close").click(function() {
+    var oldProminent = $(this).parent();
+    console.log(oldProminent);
+    $(this).css("display", "none");
+    $(oldProminent).removeClass("prominent").addClass("standard");
   });
 };
 
 OakAmpdBandsJs.setup = function() {
-  OakAmpdBandsJs.resizeBandListings();
+  OakAmpdBandsJs.attachBandListingsClickHandlers();
+  OakAmpdBandsJs.attachProminentCloseClickHandlers();
 };
 
 $(OakAmpdBandsJs.setup);

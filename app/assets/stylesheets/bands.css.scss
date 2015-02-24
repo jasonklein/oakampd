@@ -40,15 +40,20 @@
     &.prominent {
       width: 50%;
       .band-image {
-        background-color: transparent;
+        background-color: $highlight-full-color;
         img {
           opacity: 1;
         }
       }
     }
     .close {
-      margin-left: 95%;
+      color: $highlight-full-color;
+      font-weight: bold;
       display: none;
+      margin-left: 95%;
+      &:hover {
+        cursor: pointer;
+      }
     }
     .band-listing {
       padding: 10px;
