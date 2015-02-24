@@ -1,4 +1,8 @@
 = form_for @band do |f|
+  - if @band.errors.any?
+    .errors
+      .span.backing
+        = @band.errors.full_messages.join(', ').downcase.capitalize
   #new-band-row-1
     #band-name
       = f.label :name, form_label_with_backing(:name)
@@ -6,7 +10,7 @@
   #new-band-row-2
     #band-image
       = f.label :image, form_label_with_backing(:image)
-      = f.file_field :image
+      = f.text_field :remote_image_url, placeholder: "http://..."
     #band-image-credit
       = f.label :image_credit, form_label_with_backing(:image_credit)
       = f.text_field :image_credit

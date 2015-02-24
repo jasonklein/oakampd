@@ -47,8 +47,8 @@ class BandImageUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
+  def filename
+    Digest::SHA256.hexdigest(original_filename.encode('UTF-8')) if original_filename
+  end
 
 end

@@ -1,9 +1,10 @@
 #bands-listings
   - @bands.each do |band|
     .band-listing-wrapper.standard
+      .close &#x2715;
       .band-listing.backing
         .band-image
-          = image_tag band.image.url(:thumb)
+          = image_tag band.image
         .band-image-credit
           = band.image_credit
         .band-name
