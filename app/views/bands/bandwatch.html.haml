@@ -1,10 +1,10 @@
 #bands-listings
-  - @bands.each do |band|
+  - @bands.each_with_index do |band, index|
     .band-listing-wrapper.standard
       .close &#x2715;
       .band-listing.backing
-        .band-image
-          = image_tag band.image
+        .band-image{data: {full: "#{band.image.url}"}}
+          = image_tag band.image.url(:thumb), id: "band-image-#{index + 1}", alt: band.name
         .band-image-credit
           = band.image_credit
         .band-name

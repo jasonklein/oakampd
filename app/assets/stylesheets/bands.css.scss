@@ -23,11 +23,27 @@
   .band-listing-wrapper {
     display: inline-block;
     padding: 10px;
-    transition: all 500ms;
+    transition: all 700ms;
     &.standard {
       width: 32.5%;
       &:hover {
-        width: 50%;
+        cursor: pointer;
+      }
+      .band-image {
+        background-color: $highlight-full-color;
+        /*padding: 4px 4px 0 4px;*/
+        img {
+          opacity: 0.6;
+        }
+      }
+    }
+    &.prominent {
+      width: 50%;
+      .band-image {
+        background-color: transparent;
+        img {
+          opacity: 1;
+        }
       }
     }
     .close {
@@ -39,6 +55,9 @@
       width: 100%;
       .band-image {
         text-align: center;
+        img {
+          margin: 0 auto;
+        }
       }
       .band-image-credit {
         font-size: $base-font-size * 0.8;
