@@ -18,3 +18,24 @@
     @include span-columns(4 of 8);
   }
 }
+
+#bands-listings {
+  .band-listing-wrapper {
+    width: 33.333%;
+    padding: 10px;
+    .band-listing {
+      padding: 10px;
+      width: 100%;
+      .band-image {
+        text-align: center;
+      }
+      .band-image-credit {
+        font-size: $base-font-size * 0.8;
+        font-style: italic;
+      }
+      .band-name {
+        font-weight: bold;
+      }
+    }
+  }
+}

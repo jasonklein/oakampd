@@ -1,2 +1,24 @@
-%h1 Bands#bandwatch
-%p Find me in app/views/bands/bandwatch.html.haml
+#bands-listings
+  - @bands.each do |band|
+    .band-listing-wrapper.standard
+      .band-listing.backing
+        .band-image
+          = image_tag band.image.url(:thumb)
+        .band-image-credit
+          = band.image_credit
+        .band-name
+          = band.name
+        .band-social-media
+          - if band.website
+            .website
+              = band.website
+          - if band.bandcamp
+            .bandcamp
+              = band.bandcamp
+          - if band.facebook
+            .facebook
+              = band.facebook
+          - if band.soundcloud
+            .soundcloud
+              = band.soundcloud
+
