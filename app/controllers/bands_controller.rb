@@ -14,7 +14,7 @@ class BandsController < ApplicationController
   def create
     @band = Band.new params[:band]
     if @band.save
-      redirect_to bandwatch_path, notice: "Band added!"
+      redirect_to bands_path, notice: "Band added!"
     else
       render "new"
     end
@@ -29,7 +29,7 @@ class BandsController < ApplicationController
   def update
     respond_to do |format|
       if @band.update_attributes(params[:band])
-        format.html { redirect_to bandwatch_path, :notice => "Band was successfully updated." }
+        format.html { redirect_to bands_path, :notice => "Band was successfully updated." }
         format.json { respond_with_bip @band }
       else
         format.html { render :action => "edit" }
