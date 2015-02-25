@@ -2,14 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#new_band {
+#new_band,
+.edit_band {
   textarea,
   #{$all-text-inputs},
   select[multiple=multiple] {
     width: 90%;
     color: $base-link-color;
   }
-  #new-band-row-1, #new-band-row-2, #new-band-row-3, #new-band-row-4 {
+  #band-form-row-1, #band-form-row-2, #band-form-row-3, #band-form-row-4 {
     @include row(table);
   }
   #band-image, #band-image-credit,
@@ -46,14 +47,6 @@
         img {
           opacity: 1;
         }
-      }
-    }
-    .close {
-      color: $highlight-full-color;
-      font-weight: bold;
-      display: none;
-      &:hover {
-        cursor: pointer;
       }
     }
     .band-listing {
