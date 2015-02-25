@@ -3,7 +3,7 @@ Oakampd::Application.routes.draw do
   resources :gigs
   resources :users, only: [:new, :show]
   resources :venues
-  resources :bands, except: :index
+  resources :bands
 
   root to: "gigs#index"
 
@@ -17,7 +17,7 @@ Oakampd::Application.routes.draw do
   post "gigs/new_by_csv", to: "gigs#new_by_csv"
   delete "gigs/:id", to: "gigs#destroy", as: "delete_gig"
   delete "venues/:id", to: "venues#destroy", as: "delete_venue"
-  get "bandwatch", to: "bands#bandwatch", as: "bandwatch"
+  # get "bands/index", to: "bands#bandwatch", as: "bandwatch"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
