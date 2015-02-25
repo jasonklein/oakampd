@@ -32,7 +32,7 @@ class BandsController < ApplicationController
 
   def destroy
     @band.destroy
-    redirect_to root_path, notice: "Band deleted."
+    redirect_to bandwatch_path, notice: "Band deleted."
   end
 
 
