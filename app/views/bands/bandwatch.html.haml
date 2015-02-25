@@ -7,10 +7,11 @@
         .band-image-credit
           = band.image_credit
         .band-name
-          - if can?(:update, band)
-            = link_to band.name, edit_band_path(band)
-          - else
-            = band.name
+          = band.name
+        - if can?(:update, band)
+          %button
+            = link_to "Edit", edit_band_path(band), class: "button-link"
+          = button_to "Delete", delete_band_path(band), method: :delete, confirm: "Delete band?"
         .band-social-media
           %ul
             - if !band.website.blank?

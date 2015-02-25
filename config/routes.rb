@@ -18,6 +18,7 @@ Oakampd::Application.routes.draw do
   delete "gigs/:id", to: "gigs#destroy", as: "delete_gig"
   delete "venues/:id", to: "venues#destroy", as: "delete_venue"
   get "bandwatch", to: "bands#bandwatch", as: "bandwatch"
+  delete "bands/:id", to: "bands#destroy", as: "delete_band"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
