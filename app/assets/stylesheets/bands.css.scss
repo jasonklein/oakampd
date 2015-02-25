@@ -26,20 +26,22 @@
     transition: all 700ms;
     &.standard {
       width: 32.5%;
-      &:hover {
-        cursor: pointer;
-      }
-      .band-image {
+      .band-image-container {
         background-color: $highlight-full-color;
-        /*padding: 4px 4px 0 4px;*/
         img {
           opacity: 0.6;
+          &:hover {
+            cursor: pointer;
+          }
         }
+      }
+      .band-social-media {
+        display: none;
       }
     }
     &.prominent {
       width: 50%;
-      .band-image {
+      .band-image-container {
         background-color: $highlight-full-color;
         img {
           opacity: 1;
@@ -50,7 +52,6 @@
       color: $highlight-full-color;
       font-weight: bold;
       display: none;
-      margin-left: 95%;
       &:hover {
         cursor: pointer;
       }
@@ -70,6 +71,15 @@
       }
       .band-name {
         font-weight: bold;
+      }
+      .band-social-media {
+        ul {
+          margin-top: 5px;
+          li {
+            display: inline;
+            margin-right: 5%;
+          }
+        }
       }
     }
   }
