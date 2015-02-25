@@ -1,11 +1,10 @@
 class BandsController < ApplicationController
 
-  before_filter :authenticate_user!
-  load_and_authorize_resource
+  before_filter :authenticate_user!, except: :bandwatch
+  load_and_authorize_resource except: :bandwatch
 
-  def index
+  def bandwatch
     @bands = Band.all
-    render "bandwatch"
   end
 
   def new
@@ -14,27 +13,20 @@ class BandsController < ApplicationController
   def create
     @band = Band.new params[:band]
     if @band.save
-      redirect_to bands_path, notice: "Band added!"
+      redirect_to bandwatch_path, notice: "Band added!"
     else
       render "new"
     end
-  end
-
-  def show
   end
 
   def edit
   end
 
   def update
-    respond_to do |format|
-      if @band.update_attributes(params[:band])
-        format.html { redirect_to bands_path, :notice => "Band was successfully updated." }
-        format.json { respond_with_bip @band }
-      else
-        format.html { render :action => "edit" }
-        format.json { respond_with_bip(@band) }
-      end
+    if @band.update_attributes params[:band]
+      redirect_to bandwatch_path, notice: "Band updated!"
+    else
+      render "edit"
     end
   end
 

@@ -17,7 +17,7 @@ class Ability
       else
         can :read, :all
         cannot :read, User
-        cannot :read, Band
+        # cannot :read, Band
       end
     #
     # The first argument to `can` is the action you are giving the user 
