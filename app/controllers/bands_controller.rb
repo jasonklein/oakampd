@@ -3,12 +3,12 @@ class BandsController < ApplicationController
   before_filter :authenticate_user!
   load_and_authorize_resource
 
-  def bandwatch
+  def index
     @bands = Band.all
+    render "bandwatch"
   end
 
   def new
-    # @band = Band.new
   end
 
   def create
