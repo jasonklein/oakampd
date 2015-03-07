@@ -14,8 +14,13 @@ OakAmpdBandsJs.attachBandListingsClickHandlers = function() {
   });
 };
 
+OakAmpdBandsJs.unveilImagesLazily = function() {
+  $("img").unveil();
+};
+
 OakAmpdBandsJs.setup = function() {
   OakAmpdBandsJs.attachBandListingsClickHandlers();
+  OakAmpdBandsJs.unveilImagesLazily();
 };
 
 $(OakAmpdBandsJs.setup);

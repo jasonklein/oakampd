@@ -3,7 +3,7 @@
     .band-listing-wrapper.standard
       .band-listing.backing
         .band-image-container
-          = image_tag band.image, class: "band-image", alt: band.name
+          = image_tag logo_filename, class: "band-image", alt: band.name, data: {src: band.image.url }
         .band-image-credit
           = band.image_credit
         .band-name
@@ -26,4 +26,5 @@
             - if !band.soundcloud.blank?
               %li.soundcloud
                 = link_to image_tag("logo-soundcloud.png"), band.soundcloud, target: "_blank"
+        
 
