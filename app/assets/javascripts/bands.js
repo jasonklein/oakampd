@@ -15,7 +15,8 @@ OakAmpdBandsJs.attachBandListingsClickHandlers = function() {
 };
 
 OakAmpdBandsJs.unveilImagesLazily = function() {
-  $("img").unveil();
+  $("body").animate({scrollTop: 2});
+  $("img").unveil(70);
 };
 
 OakAmpdBandsJs.setup = function() {

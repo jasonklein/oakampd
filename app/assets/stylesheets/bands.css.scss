@@ -36,7 +36,8 @@
           }
         }
       }
-      .band-social-media {
+      .band-social-media,
+      .close {
         display: none;
       }
     }
@@ -47,6 +48,10 @@
         img {
           opacity: 1;
         }
+      }
+      .band-social-media,
+      .close {
+        display: inline-block;
       }
     }
     .band-listing {
@@ -87,6 +92,9 @@
             margin-right: 6px;
           }
         }
+      }
+      .close {
+        font-size: 20px;
       }
     }
   }
