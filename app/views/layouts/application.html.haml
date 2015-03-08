@@ -41,7 +41,7 @@
             %li.nav-link
               = link_to "VENUES", venues_path, class: active_if_active("venues")
             %li.nav-link
-              = link_to "BANDWATCH", page_path("bandwatch"), class: active_if_active("bands")
+              = link_to "BANDWATCH", bandwatch_path, class: active_if_active("bands")
             %li.nav-link
               = link_to "ABOUT", page_path("about"), class: active_if_active("about")
             %li#contacts
@@ -59,12 +59,16 @@
       %span.backing
         = alert
     #main-container
-      #main-content
-        = yield
-      #gutter-column
-      #side-content
-        = render "side_content/block_ads"
-        = render "layouts/twitter_widget"
+      - if !bandwatch_index?
+        #main-content
+          = yield
+        #gutter-column
+        #side-content
+          = render "side_content/block_ads"
+          = render "layouts/twitter_widget"
+      - else
+        #bandwatch-content
+          = yield
     %footer
       #footer-contacts-mobile
         %ul.footer-contact-icons

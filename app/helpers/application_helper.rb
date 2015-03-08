@@ -43,8 +43,8 @@ module ApplicationHelper
     Rails.env.production?
   end
 
-  # def venues_controller?
-  #   params[:controller] == "venues"
-  # end
+  def bandwatch_index?
+    params[:controller] == "bands" && params[:action] == "bandwatch"
+  end
 
 end
