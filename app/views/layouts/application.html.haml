@@ -58,11 +58,10 @@
     .alerts
       %span.backing
         = alert
-    #main-container
-      - if !bandwatch_index?
-        = render "layouts/standard_content"
-      - else
-        = render "layouts/bandwatch"
+    - if !bandwatch_index?
+      = render "layouts/standard_content"
+    - else
+      = render "layouts/bandwatch_content"
     %footer
       #footer-contacts-mobile
         %ul.footer-contact-icons

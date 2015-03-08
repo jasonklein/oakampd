@@ -20,13 +20,18 @@
   }
 }
 
+#bandwatch {
+  text-align: justify;
+}
+
 #bands-listings {
   .band-listing-wrapper {
     display: inline-block;
     padding: 10px;
+    vertical-align: top;
     transition: all 700ms;
     &.standard {
-      width: 14%;
+      width: 13.95%;
       .band-image-container {
         background-color: $highlight-full-color;
         img {
@@ -36,18 +41,31 @@
           }
         }
       }
+      .band-image-credit {
+        font-size: $base-font-size * 0.6;
+      }
+      .band-name {
+        font-size: $base-font-size * 0.8;
+      }
       .band-social-media,
       .close {
         display: none;
       }
     }
     &.prominent {
-      width: 50%;
+      width: 35%;
       .band-image-container {
         background-color: $highlight-full-color;
+        text-align: center;
         img {
           opacity: 1;
         }
+      }
+      .band-image-credit {
+        font-size: $base-font-size * 0.8;
+      }
+      .band-name {
+        font-size: $base-font-size * 1.1;
       }
       .band-social-media,
       .close {
@@ -67,7 +85,6 @@
         }
       }
       .band-image-credit {
-        font-size: $base-font-size * 0.8;
         font-style: italic;
       }
       .band-name {
