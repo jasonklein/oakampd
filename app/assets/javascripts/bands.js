@@ -6,11 +6,16 @@ var OakAmpdBandsJs = OakAmpdBandsJs || {};
 
 OakAmpdBandsJs.attachBandListingsClickHandlers = function() {
   $(".band-image").click(function() {
-    var bandListingWrapper = $(this).closest(".band-listing-wrapper");
+    var thisBandListingWrapper = $(this).closest(".band-listing-wrapper");
     var oldProminent = $("#bands-listings").find(".prominent")[0];
 
-    if (oldProminent) { $(oldProminent).removeClass("prominent").addClass("standard"); }
-    $(bandListingWrapper).removeClass("standard").addClass("prominent");
+    if($(thisBandListingWrapper).hasClass("prominent")) {
+      console.log("Identity!");
+      $(thisBandListingWrapper).toggleClass("prominent");
+    } else {
+      if (oldProminent) { $(oldProminent).toggleClass("prominent"); }
+      $(thisBandListingWrapper).toggleClass("prominent");
+    }
   });
 };
 
