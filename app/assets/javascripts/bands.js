@@ -10,7 +10,6 @@ OakAmpdBandsJs.attachBandListingsClickHandlers = function() {
     var oldProminent = $("#bands-listings").find(".prominent")[0];
 
     if($(thisBandListingWrapper).hasClass("prominent")) {
-      console.log("Identity!");
       $(thisBandListingWrapper).toggleClass("prominent");
     } else {
       if (oldProminent) { $(oldProminent).toggleClass("prominent"); }
