@@ -3,7 +3,7 @@
     .band-listing-wrapper.standard
       .band-listing.backing
         .band-image-container
-          = image_tag logo_filename, class: "band-image", alt: band.name, data: {src: band.image.url }
+          = image_tag logo_filename("placeholder"), class: "band-image", alt: band.name, data: {src: band.image.url }
         .band-image-credit
           = band.image_credit
         .band-name

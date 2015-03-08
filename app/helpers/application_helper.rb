@@ -7,8 +7,8 @@ module ApplicationHelper
     end
   end
 
-  def logo_filename
-    "oak-ampd-logo-bordered.jpg"
+  def logo_filename(placeholder=nil)
+    placeholder ? "oak-ampd-logo.jpg" : "oak-ampd-logo-bordered.jpg"
   end
 
   def favicon_filename
