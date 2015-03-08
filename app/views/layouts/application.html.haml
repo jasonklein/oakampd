@@ -60,15 +60,9 @@
         = alert
     #main-container
       - if !bandwatch_index?
-        #main-content
-          = yield
-        #gutter-column
-        #side-content
-          = render "side_content/block_ads"
-          = render "layouts/twitter_widget"
+        = render "layouts/standard_content"
       - else
-        #bandwatch-content
-          = yield
+        = render "layouts/bandwatch"
     %footer
       #footer-contacts-mobile
         %ul.footer-contact-icons
