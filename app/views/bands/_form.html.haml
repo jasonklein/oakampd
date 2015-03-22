@@ -28,6 +28,11 @@
     #band-soundcloud
       = f.label :soundcloud, form_label_with_backing(:soundcloud)
       = f.text_field :soundcloud
+  #band-form-row-5
+    #tags
+      = label_tag 'Tags'
+      = display_text_field_with_tags_if_any(@band)
+
   %br
   = f.submit button_text
 
