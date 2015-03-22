@@ -5,13 +5,17 @@ class BandsController < ApplicationController
 
   def bandwatch
     @bands = Band.all
+    @tags = Tag.with_bands
   end
 
   def new
   end
 
   def create
-    @band = Band.new params[:band]
+    tag_names = params[:tags].split.map(&:downcase).uniq 
+    @band.add_tags tag_names
+
+    # @band = Band.new params[:band]
     if @band.save
       redirect_to bandwatch_path, notice: "Band added!"
     else
@@ -23,6 +27,9 @@ class BandsController < ApplicationController
   end
 
   def update
+    tag_names = params[:tags].split.map(&:downcase).uniq 
+    @band.add_tags tag_names
+
     if @band.update_attributes params[:band]
       redirect_to bandwatch_path, notice: "Band updated!"
     else

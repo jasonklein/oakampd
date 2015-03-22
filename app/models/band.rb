@@ -3,11 +3,24 @@ class Band < ActiveRecord::Base
 
   mount_uploader :image, BandImageUploader
 
-  has_many :tags, through: :bands
+  validates :name, presence: true
+
+  has_many :taggings, dependent: :destroy
+  has_many :tags, through: :taggings
 
   default_scope { order('name ASC') }
 
   def self.tagged(name)
-    Tag.find_by_name(name).bands
+    Tag.find_by_name(name).try(:bands)
   end
+
+  def add_tags(tag_names)
+    self.tags = []
+    tag_names.each do |tag_name|
+      tag = Tag.where(name: tag_name).first_or_initialize
+      self.tags << tag if tag.save!
+    end
+    self.tags = self.tags.uniq
+  end
+
 end
