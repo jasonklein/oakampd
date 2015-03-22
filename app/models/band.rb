@@ -3,5 +3,11 @@ class Band < ActiveRecord::Base
 
   mount_uploader :image, BandImageUploader
 
+  has_many :tags, through: :bands
+
   default_scope { order('name ASC') }
+
+  def self.tagged(name)
+    Tag.find_by_name(name).bands
+  end
 end
