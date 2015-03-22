@@ -1,3 +1,9 @@
+#tags-list
+  %ul
+    - @tags.each do |tag|
+      %li
+        %span.backing
+          = "##{tag.name}"
 #bands-listings
   - @bands.each_with_index do |band, index|
     .band-listing-wrapper.standard

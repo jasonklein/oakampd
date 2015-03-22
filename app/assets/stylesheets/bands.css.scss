@@ -24,6 +24,18 @@
   text-align: justify;
 }
 
+#tags-list {
+  margin-bottom: 20px;
+  
+  ul {
+    li {
+      display: inline-block;
+      font-size: $base-font-size * 1.5;
+      margin: 0 10px;
+    }
+  }
+}
+
 #bands-listings {
   .band-listing-wrapper {
     display: inline-block;
