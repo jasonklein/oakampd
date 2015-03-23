@@ -17,8 +17,10 @@ class Band < ActiveRecord::Base
   def add_tags(tag_names)
     self.tags = []
     tag_names.each do |tag_name|
-      tag = Tag.where(name: tag_name).first_or_initialize
-      self.tags << tag if tag.save!
+      if !tag_name.blank?
+        tag = Tag.where(name: tag_name).first_or_initialize
+        self.tags << tag if tag.save!
+      end
     end
     self.tags = self.tags.uniq
   end

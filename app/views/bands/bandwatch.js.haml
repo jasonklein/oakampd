@@ -1,1 +1,7 @@
-$("#bands-listings").html("#{escape_javascript(render @bands)}");
+:plain
+  var $bandsListings = $("#bands-listings")
+  $bandsListings.addClass("filtered-out");
+  setTimeout(function() {
+    $bandsListings.html("#{escape_javascript(render @bands)}").removeClass("filtered-out").addClass("filtered");
+    }, 700);
+  setTimeout(OakAmpdBandsJs.unveilImagesLazily, 800);

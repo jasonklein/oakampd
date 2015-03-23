@@ -26,11 +26,16 @@ OakAmpdBandsJs.unveilImagesLazily = function() {
 OakAmpdBandsJs.displayBandsByTag = function() {
   $(document).on('click', '#tags-list li', function() {
     var tag = $(this).data("tag");
-    $.ajax({
-      data: {
-        tag: tag
-      }
-    });
+
+    if(!$(this).hasClass("filter-tag")) {
+      $(".filter-tag").removeClass("filter-tag");
+      $(this).addClass("filter-tag");
+      $.ajax({
+        data: {
+          tag: tag
+        }
+      });
+    }
   });
 };
 

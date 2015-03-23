@@ -1,5 +1,6 @@
 #tags-list
   %ul
+    %li.filter-tag{data: {tag: "all"}} #ALLTHEBANDS!!!!!
     - @tags.each do |tag|
       %li{data: {tag: tag.name}}
         %span.backing
