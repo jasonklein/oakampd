@@ -5,32 +5,4 @@
         %span.backing
           = "##{tag.name}"
 #bands-listings
-  - @bands.each do |band|
-    .band-listing-wrapper.standard
-      .band-listing.backing
-        .band-image-container
-          = image_tag logo_filename("placeholder"), class: "band-image", alt: band.name, data: {src: band.image.url }
-        .band-image-credit
-          = band.image_credit
-        .band-name
-          = band.name
-        - if can?(:update, band)
-          %button
-            = link_to "Edit", edit_band_path(band), class: "button-link"
-          = button_to "Delete", delete_band_path(band), method: :delete, confirm: "Delete band?"
-        .band-social-media
-          %ul
-            - if !band.website.blank?
-              %li.website
-                = link_to image_tag("logo-home.png"), band.website, target: "_blank"
-            - if !band.bandcamp.blank?
-              %li.bandcamp
-                = link_to image_tag("logo-bandcamp.png"), band.bandcamp, target: "_blank"
-            - if !band.facebook.blank?
-              %li.facebook
-                = link_to image_tag("logo-fb.png"), band.facebook, target: "_blank"
-            - if !band.soundcloud.blank?
-              %li.soundcloud
-                = link_to image_tag("logo-soundcloud.png"), band.soundcloud, target: "_blank"
-        / .close &#x2715;
-
+  = render @bands
