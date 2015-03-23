@@ -4,8 +4,18 @@ class BandsController < ApplicationController
   load_and_authorize_resource except: :bandwatch
 
   def bandwatch
-    @bands = Band.all
+    if params[:tag]
+      @bands = Band.tagged(params[:tag])
+    else
+      @bands = Band.all
+    end
+
     @tags = Tag.with_bands
+
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   def new

@@ -23,9 +23,21 @@ OakAmpdBandsJs.unveilImagesLazily = function() {
   $("img").unveil(20);
 };
 
+OakAmpdBandsJs.displayBandsByTag = function() {
+  $(document).on('click', '#tags-list li', function() {
+    var tag = $(this).data("tag");
+    $.ajax({
+      data: {
+        tag: tag
+      }
+    });
+  });
+};
+
 OakAmpdBandsJs.setup = function() {
   OakAmpdBandsJs.attachBandListingsClickHandlers();
   OakAmpdBandsJs.unveilImagesLazily();
+  OakAmpdBandsJs.displayBandsByTag();
 };
 
 $(OakAmpdBandsJs.setup);

@@ -1,11 +1,11 @@
 #tags-list
   %ul
     - @tags.each do |tag|
-      %li
+      %li{data: {tag: tag.name}}
         %span.backing
           = "##{tag.name}"
 #bands-listings
-  - @bands.each_with_index do |band, index|
+  - @bands.each do |band|
     .band-listing-wrapper.standard
       .band-listing.backing
         .band-image-container
