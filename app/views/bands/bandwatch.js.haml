@@ -4,4 +4,4 @@
   setTimeout(function() {
     $bandsListings.html("#{escape_javascript(render @bands)}").removeClass("filtered-out").addClass("filtered");
     }, 700);
-  setTimeout(OakAmpdBandsJs.unveilImagesLazily, 1000);
+  setTimeout(OakAmpdBandsJs.setup, 1000);
