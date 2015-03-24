@@ -23,8 +23,8 @@ OakAmpdBandsJs.unveilImagesLazily = function() {
   var top = (window.pageYOffset || doc.scrollTop);
   var unveilAdjustment = top + 1;
 
-  $("body").animate({scrollTop: unveilAdjustment});
   $("img").unveil(20);
+  $("body").animate({scrollTop: unveilAdjustment});
 };
 
 OakAmpdBandsJs.displayBandsByTag = function() {
