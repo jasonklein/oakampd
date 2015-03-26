@@ -47,4 +47,8 @@ module ApplicationHelper
     params[:controller] == "bands" && params[:action] == "bandwatch"
   end
 
+  def meta_keywords
+    "oakland gigs, oakland gig guide, oakland listings, oakland concerts, indie gigs oakland, oakland gigs tonight, oakland live music, oakland live, oakland live gigs, whats on music oakland, oakland music gigs, timeout oakland, oakland shows, oakland bands, oakland venues"
+  end
+
 end
