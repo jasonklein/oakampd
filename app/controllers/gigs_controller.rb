@@ -5,8 +5,7 @@ class GigsController < ApplicationController
 
   def index
     @gigs = Gig.all
-    @first_ids = firsts_or_lasts_of_the_month_ids(@gigs)
-    @last_ids = firsts_or_lasts_of_the_month_ids(@gigs.reverse)
+    @first_ids, @last_ids = firsts_and_lasts_of_the_month_ids(@gigs)
     @ads = ads
   end
 
@@ -52,30 +51,30 @@ class GigsController < ApplicationController
     redirect_to root_path, notice: "Gig deleted."
   end
 
-  def firsts_or_lasts_of_the_month_ids(gigs)
+  def firsts_and_lasts_of_the_month_ids(gigs)
 
     ### Assumes proper chrono. ordering by default_scope
-    ### Puts the first occurence of each month into an array
+    ### Puts ids of adjacent gigs with different months into
+    ### first_ids and last_ids arrays, returning both
 
-    firsts = []
-    firsts << gigs.first
+    first_ids = []
+    last_ids = []
     count = gigs.count - 1
+
+    first_ids << gigs.first.id
 
     count.times do |i|
       first_gig = gigs[i]
       second_gig = gigs[i + 1]
       if first_gig.showdate.month != second_gig.showdate.month
-        firsts << second_gig
+        first_ids << second_gig.id
+        last_ids << first_gig.id
       end
     end
 
-    ids = []
-    if firsts.any?
-      firsts.each do |first|
-        ids << first.id
-      end
-    end
-    ids
+    last_ids << gigs.last.id
+
+    return first_ids, last_ids
   end
 
   def create_gigs_from_file_and_return_counts(csv_path)
