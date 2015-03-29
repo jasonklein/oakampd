@@ -30,10 +30,11 @@
   ul {
     li {
       display: inline-block;
-      font-size: $base-font-size * 1.5;
+      font-size: $base-font-size * 1.25;
       cursor: pointer;
-      margin: 0 10px;
+      margin: 0 5px;
 
+      &:hover,
       &.filter-tag {
         color: $base-link-color;
       }
@@ -68,6 +69,7 @@
       .band-name {
         font-size: $base-font-size * 0.8;
       }
+      .band-tags,
       .band-social-media,
       .close {
         display: none;
@@ -87,6 +89,9 @@
       }
       .band-name {
         font-size: $base-font-size * 1.1;
+      }
+      .band-tags {
+        display: block;
       }
       .band-social-media,
       .close {
@@ -121,6 +126,18 @@
       .button_to,
       .button_to div {
         display: inline;
+      }
+      .band-tags {
+        ul {
+          li {
+            display: inline-block;
+            cursor: pointer;
+
+            &:hover {
+              color: $base-link-color;
+            }
+          }
+        }
       }
       .band-social-media {
         ul {
