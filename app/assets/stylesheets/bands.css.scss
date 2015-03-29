@@ -43,6 +43,7 @@
 }
 
 #bands-listings {
+  min-height: 500px;
   transition: all 500ms;
   &.filtered-out {
     transform: scale(0.01);
