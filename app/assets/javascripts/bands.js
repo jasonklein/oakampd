@@ -28,7 +28,7 @@ OakAmpdBandsJs.unveilImagesLazily = function() {
 };
 
 OakAmpdBandsJs.displayBandsByTag = function() {
-  $(document).on('click', '#tags-list li', function() {
+  $(document).on('click', '.tags li', function() {
     var tag = $(this).data("tag");
 
     if(!$(this).hasClass("filter-tag")) {

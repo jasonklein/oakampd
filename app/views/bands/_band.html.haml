@@ -11,7 +11,7 @@
         = link_to "Edit", edit_band_path(band), class: "button-link"
       = button_to "Delete", delete_band_path(band), method: :delete, confirm: "Delete band?"
     .band-tags
-      %ul.tags-on-bands
+      %ul#tags-on-bands.tags
         - band.tags.each do |tag|
           %li{class: "on-band", data: {tag: tag.name}}
             = "##{tag.name}"
