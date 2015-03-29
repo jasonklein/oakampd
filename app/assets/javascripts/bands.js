@@ -29,11 +29,25 @@ OakAmpdBandsJs.unveilImagesLazily = function() {
 
 OakAmpdBandsJs.displayBandsByTag = function() {
   $(document).on('click', '.tags li', function() {
-    var tag = $(this).data("tag");
+    if($(this).data("id")) {
+      var id = $(this).data("id");
+      var $that = $("#" + id);
+      var tag = $that.data("tag");
+    }
+    else {
+      var $that = $(this);
+      var tag = $that.data("tag");
+    }
 
-    if(!$(this).hasClass("filter-tag")) {
+    if(!$that.hasClass("filter-tag")) {
+      var oldProminent = $("#bands-listings").find(".prominent")[0];
+
+      if(oldProminent) {
+        $(oldProminent).removeClass("prominent");
+      }
+
       $(".filter-tag").removeClass("filter-tag");
-      $(this).addClass("filter-tag");
+      $that.addClass("filter-tag");
       $.ajax({
         data: {
           tag: tag

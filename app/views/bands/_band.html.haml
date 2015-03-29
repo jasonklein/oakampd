@@ -13,7 +13,7 @@
     .band-tags
       %ul#tags-on-bands.tags
         - band.tags.each do |tag|
-          %li{class: "on-band", data: {tag: tag.name}}
+          %li{class: "on-band", data: {tag: tag.name, id: "tag_#{tag.id}"}}
             = "##{tag.name}"
 
     .band-social-media

@@ -3,7 +3,7 @@
     %li.filter-tag{data: {tag: "all"}}
       %span.backing #ALLTHEBANDS!!!!!
     - @tags.each do |tag|
-      %li{data: {tag: tag.name}}
+      %li{id: "tag_#{tag.id}", data: {tag: tag.name}}
         %span.backing
           = "##{tag.name}"
 #bands-listings
