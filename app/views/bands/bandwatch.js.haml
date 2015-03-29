@@ -2,6 +2,6 @@
   var $bandsListings = $("#bands-listings")
   $bandsListings.addClass("filtered-out");
   setTimeout(function() {
-    $bandsListings.html("#{escape_javascript(render @bands)}").removeClass("filtered-out").addClass("filtered");
+    $bandsListings.html("#{escape_javascript(render @bands)}").removeClass("filtered-out");
     }, 700);
   setTimeout(OakAmpdBandsJs.setup, 1000);
