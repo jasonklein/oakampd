@@ -5,7 +5,7 @@
     .band-image-credit
       = band.image_credit
     .band-name
-      = band.name
+      = band.name.upcase
     - if can?(:update, band)
       %button
         = link_to "Edit", edit_band_path(band), class: "button-link"
