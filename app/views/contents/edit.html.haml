@@ -8,19 +8,19 @@
         = @content.errors.full_messages.join(', ').downcase.capitalize
   #content-gigs-header
     = f.label :gigs_header, form_label_with_backing(:gigs_header)
-    = f.text_field :gigs_header
+    = f.text_area :gigs_header
   #content-venues-header
     = f.label :venues_header, form_label_with_backing(:venues_header)
-    = f.text_field :venues_header
+    = f.text_area :venues_header
   #content-bands-header
     = f.label :bands_header, form_label_with_backing(:bands_header)
-    = f.text_field :bands_header
+    = f.text_area :bands_header
   #content-about-header
     = f.label :about_header, form_label_with_backing(:about_header)
-    = f.text_field :about_header
+    = f.text_area :about_header
   #content-about-content
     = f.label :about_content, form_label_with_backing(:about_content)
-    = f.text_field :about_content
+    = f.text_area :about_content
   %br
   = f.submit "Submit"
 
