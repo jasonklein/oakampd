@@ -18,6 +18,7 @@
 //= require best_in_place.purr
 //= require best_in_place.jquery-ui
 //= require isotope.pkgd.min
+//= require froala_editor.min.js
 //= require_tree .
 
 var OakAmpdApp = OakAmpdApp || {};

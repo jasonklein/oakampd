@@ -10,6 +10,9 @@
  *
  *= require normalize-rails
  *= require_self
+ *= require font-awesome
+ *= require froala_editor.min.css
+ *= require froala_style.min.css
  */
 
 @import 'bourbon';
@@ -21,6 +24,7 @@
 @import 'bands';
 @import 'devise';
 @import 'about';
+@import 'contents';
 @import 'side_content';
 @import 'jquery-ui.min';
 
