@@ -58,6 +58,8 @@ module ApplicationHelper
     content = Content.first
     if controller == "contents"
       return
+    elsif controller == "devise/sessions"
+      raw content.gigs_header
     else
       header = controller == "high_voltage/pages" ? content.about_header : content.send("#{controller}_header")
       raw header
