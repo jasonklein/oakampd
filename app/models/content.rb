@@ -1,3 +1,3 @@
 class Content < ActiveRecord::Base
-  attr_accessible :about_content, :bandwatch_content, :gig_content, :venus_content
+  attr_accessible :gigs_header, :venues_header, :bands_header, :about_header, :about_content
 end
