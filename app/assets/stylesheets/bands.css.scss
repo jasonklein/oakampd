@@ -30,6 +30,11 @@
   ul {
     li {
       display: inline-block;
+      @include media($mobile) {
+        &:not(.filter-tag) {
+          display: none;
+        }
+      }
       font-size: $base-font-size * 1.25;
       cursor: pointer;
       margin: 0 5px;
