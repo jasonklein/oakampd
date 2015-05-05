@@ -1,13 +1,12 @@
 Oakampd::Application.routes.draw do
 
-  get "contents/edit"
 
-  get "contents/update"
 
   resources :gigs
   resources :users, only: [:new, :show]
   resources :venues
   resources :bands, except: [:index, :show]
+  resources :contents, only: [:update]
 
   root to: "gigs#index"
 
@@ -23,6 +22,7 @@ Oakampd::Application.routes.draw do
   delete "venues/:id", to: "venues#destroy", as: "delete_venue"
   get "bandwatch", to: "bands#bandwatch", as: "bandwatch"
   delete "bands/:id", to: "bands#destroy", as: "delete_band"
+  get "contents/edit", to: "contents#edit", as: "edit_content"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
