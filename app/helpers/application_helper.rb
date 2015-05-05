@@ -53,4 +53,20 @@ module ApplicationHelper
     "oakland gigs, oakland gig guide, oakland listings, oakland concerts, indie gigs oakland, oakland gigs tonight, oakland live music, oakland live, oakland live gigs, whats on music oakland, oakland music gigs, timeout oakland, oakland shows, oakland bands, oakland venues"
   end
 
+  def content_for_header
+    controller = params[:controller]
+    content = Content.first
+    if controller == "contents"
+      return
+    else
+      header = controller == "high_voltage/pages" ? content.about_header : content.send("#{controller}_header")
+      raw header
+    end
+  end
+
+  def content_for_about
+    content = Content.first
+    raw content.about_content
+  end
+
 end

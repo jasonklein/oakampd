@@ -29,15 +29,14 @@
           %span &#124;
           = link_to "Add Band", new_band_path
           %span &#124;
+          = link_to "Edit Content", edit_content_path
+          %span &#124;
           = link_to "Logout", destroy_user_session_path, method: :delete
       #header-left
         = display_header_image
       #header-right
         #header-right-text
-          %h5
-            %span Your Oakland gig guide.
-            %span.phablet-up-only Sort listings by date, venue, band, or price and find your next live music night out.
-          %h5.desktop-only For tickets, click the price in the listing. Prices shown may represent the lowest and/or advance ticket prices and could be higher at the door or depending on other options.
+          = content_for_header
         %nav
           %ul.nav-links
             %li.nav-link
