@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150322143904) do
+ActiveRecord::Schema.define(:version => 20150505115543) do
 
   create_table "bands", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(:version => 20150322143904) do
     t.string   "soundcloud"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "contents", :force => true do |t|
+    t.text     "gigs_header"
+    t.text     "venues_header"
+    t.text     "bands_header"
+    t.text     "about_header"
+    t.text     "about_content"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "gigs", :force => true do |t|

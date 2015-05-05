@@ -1,5 +1,9 @@
 Oakampd::Application.routes.draw do
 
+  get "contents/edit"
+
+  get "contents/update"
+
   resources :gigs
   resources :users, only: [:new, :show]
   resources :venues

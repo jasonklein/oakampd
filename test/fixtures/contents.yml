@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  gig_content: MyText
+  venus_content: MyText
+  bandwatch_content: MyText
+  about_content: MyText
+
+two:
+  gig_content: MyText
+  venus_content: MyText
+  bandwatch_content: MyText
+  about_content: MyText

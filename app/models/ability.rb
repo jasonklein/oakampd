@@ -14,6 +14,7 @@ class Ability
         can :manage, Gig
         can :manage, Venue
         can :manage, Band
+        can :manage, Content
       else
         can :read, :all
         cannot :read, User
