@@ -55,6 +55,9 @@
     transition: all 700ms;
     &.standard {
       width: 13.95%;
+      @include media($mobile) {
+        width: 48%;
+      }
       .band-image-container {
         background-color: $highlight-full-color;
         img {
@@ -69,6 +72,9 @@
       }
       .band-name {
         font-size: $base-font-size * 0.8;
+        @include media($mobile) {
+          font-size: $base-font-size * 1.1;
+        }
       }
       .band-tags,
       .band-social-media,
@@ -78,6 +84,9 @@
     }
     &.prominent {
       width: 35%;
+      @include media($mobile) {
+        width: 48%;
+      }
       .band-image-container {
         background-color: $highlight-full-color;
         text-align: center;
