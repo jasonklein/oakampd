@@ -35,7 +35,9 @@ module ApplicationHelper
     when :image_credit
       raw "<span class='backing'>Image Credit</span>"
     else
-      raw "<span class='backing'>#{label.capitalize}</span>"
+      label_array = label.to_s.split("_")
+      label = label_array.map(&:capitalize).join(" ")
+      raw "<span class='backing'>#{label}</span>"
     end
   end
 
