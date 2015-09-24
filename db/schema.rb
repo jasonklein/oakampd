@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150505115543) do
+ActiveRecord::Schema.define(:version => 20150924071658) do
 
   create_table "bands", :force => true do |t|
     t.string   "name"
@@ -31,9 +31,28 @@ ActiveRecord::Schema.define(:version => 20150505115543) do
     t.text     "bands_header"
     t.text     "about_header"
     t.text     "about_content"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.text     "features_header"
   end
+
+  create_table "feature_images", :force => true do |t|
+    t.string   "image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "features", :force => true do |t|
+    t.string   "title"
+    t.string   "subtitle"
+    t.integer  "author_id"
+    t.text     "body"
+    t.boolean  "display_subtitle"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "features", ["author_id"], :name => "index_features_on_author_id"
 
   create_table "gigs", :force => true do |t|
     t.date     "showdate"

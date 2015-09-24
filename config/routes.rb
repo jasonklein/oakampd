@@ -2,11 +2,20 @@ Oakampd::Application.routes.draw do
 
 
 
+  get "features/index"
+
+  get "features/new"
+
+  get "features/show"
+
+  get "features/edit"
+
   resources :gigs
   resources :users, only: [:new, :show]
   resources :venues
   resources :bands, except: [:index, :show]
   resources :contents, only: [:update]
+  resources :features
 
   root to: "gigs#index"
 
