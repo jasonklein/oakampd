@@ -1,0 +1,31 @@
+= form_for @feature do |f|
+  - if @feature.errors.any?
+    .errors
+      .span.backing
+        = @feature.errors.full_messages.join(', ').downcase.capitalize
+
+  = f.label :title, form_label_with_backing(:title)
+  = f.text_field :title
+  %br
+  = f.label :subtitle, form_label_with_backing(:subtitle)
+  = f.text_field :subtitle
+  = f.label :display_subtitle, form_label_with_backing(:display_subtitle)
+  = f.radio_button :display_subtitle, true
+  = f.label :display_subtitle_true, form_label_with_backing(:yes)
+  = f.radio_button :display_subtitle, false
+  = f.label :display_subtitle_false, form_label_with_backing(:no)
+  %br
+  = f.label :body, form_label_with_backing(:body)
+  = f.text_area :body
+  %br
+  %br
+  = f.label :feature_images, form_label_with_backing(:feature_images)
+  = f.fields_for :feature_images do |fi|
+    - if fi.object.new_record?
+      = fi.file_field :image, accept: 'image/jpg, image/jpeg image/gif, image/png'
+    - else
+      = image_tag fi.image.url(:thumb)
+      = fi.checkbox :_destroy
+      = fi.label :_destroy, form_label_with_backing(:delete)
+  %br
+  = f.submit button_text
