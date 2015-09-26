@@ -1,2 +1,13 @@
-%h1 Features#show
-%p Find me in app/views/features/show.html.haml
+%h1
+  = @feature.title
+%h2
+  = @feature.subtitle
+- if @feature.cover_image
+  .cover-image
+    = image_tag @feature.cover_image_url
+%p
+  = @feature.body
+- if @feature.other_images_urls
+  .other-images
+    - @feature.other_images_urls.each do |other_image_url|
+      = image_tag other_image_url

@@ -1,5 +1,5 @@
 class FeatureImage < ActiveRecord::Base
-  attr_accessible :image
+  attr_accessible :cover, :feature_id, :image
 
   mount_uploader :image, ImageUploader
 

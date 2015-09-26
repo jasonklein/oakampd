@@ -20,12 +20,19 @@
   %br
   %br
   = f.label :feature_images, form_label_with_backing(:feature_images)
+  = f.label :cover_image, form_label_with_backing(:cover_image)
+  = f.file_field :cover_image, accept: 'image/jpg, image/jpeg image/gif, image/png'
+  = f.label :other_images, form_label_with_backing(:other_images)
+  = f.file_field :other_images, multiple: true, accept: 'image/jpg, image/jpeg image/gif, image/png'
   = f.fields_for :feature_images do |fi|
-    - if fi.object.new_record?
-      = fi.file_field :image, accept: 'image/jpg, image/jpeg image/gif, image/png'
-    - else
-      = image_tag fi.image.url(:thumb)
-      = fi.checkbox :_destroy
-      = fi.label :_destroy, form_label_with_backing(:delete)
+    - next unless fi.object.cover
+    = image_tag fi.object.image.url :thumb
+    = fi.check_box :_destroy
+    = fi.label :_destroy, form_label_with_backing(:delete)
+  = f.fields_for :feature_images do |fi|
+    - next if fi.object.cover
+    = image_tag fi.object.image.url :thumb
+    = fi.check_box :_destroy
+    = fi.label :_destroy, form_label_with_backing(:delete)
   %br
   = f.submit button_text

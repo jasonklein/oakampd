@@ -1,2 +1,5 @@
-%h1 Features#edit
-%p Find me in app/views/features/edit.html.haml
+%h2
+  %span.backing
+    = "Edit #{@feature.title}"
+%br
+= render partial: "form", locals: { button_text: "Edit Feature" }
