@@ -1,6 +1,4 @@
 class Feature < ActiveRecord::Base
-  attr_accessible :body, :cover_image, :display_subtitle, :feature_images_attributes, :other_images, :subtitle, :title
-
   belongs_to :author, class_name: 'User'
 
   has_many :feature_images, dependent: :destroy

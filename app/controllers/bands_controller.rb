@@ -52,5 +52,9 @@ class BandsController < ApplicationController
     redirect_to bandwatch_path, notice: "Band deleted."
   end
 
+  private
 
+  def band_params
+    params.require(:band).permit(:bandcamp, :facebook, :image, :image_credit, :name, :soundcloud, :website, :remote_image_url)
+  end
 end

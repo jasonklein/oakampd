@@ -4,17 +4,14 @@ class GigsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @gigs = Gig.all
     @first_ids, @last_ids = firsts_and_lasts_of_the_month_ids(@gigs)
     @ads = ads
   end
 
   def new
-    @gig = Gig.new
   end
 
   def create
-    @gig = Gig.new params[:gig]
     @gig.price = @gig.price ? @gig.price : -1
     if @gig.save
       redirect_to root_path, notice: "Gig added!"
@@ -106,5 +103,11 @@ class GigsController < ApplicationController
     ["block-ad-econo-jam.png", "https://www.facebook.com/EconoJamRecords"],
     ["block-ad-mall-walk.jpg", "http://mallwalkband.com/"],
     ["block-ad-oakland-drops.jpg", "http://www.oaklanddropsbeats.com/"]]
+  end
+
+  private
+
+  def gig_params
+    params.require(:gig).permit(:band, :price, :showdate, :url, :venue_name, :venue_address)
   end
 end

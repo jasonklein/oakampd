@@ -36,4 +36,10 @@ class VenuesController < ApplicationController
     @venue.destroy
     redirect_to venues_path, notice: "Venue deleted."
   end
+
+  private
+
+  def venue_params
+    params.require(:venue).permit(:address, :name, :phone, :url, :zipcode)
+  end
 end

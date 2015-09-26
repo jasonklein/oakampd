@@ -34,6 +34,10 @@ class FeaturesController < ApplicationController
 
   private
 
+  def feature_params
+    params.require(:feature).permit(:body, :cover_image, :display_subtitle, :feature_images_attributes, :other_images, :subtitle, :title, :feature_images_attributes: [:cover, :feature_id, :image])
+  end
+
   def set_feature_images(new_cover_image, other_images)
     set_cover_image(new_cover_image) if new_cover_image
     set_other_images(other_images) if other_images.present?

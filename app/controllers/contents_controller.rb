@@ -13,4 +13,10 @@ class ContentsController < ApplicationController
       render "edit"
     end
   end
+
+  private
+
+  def content_params
+    params.require(:content).permit(:gigs_header, :venues_header, :bands_header, :about_header, :about_content)
+  end
 end
