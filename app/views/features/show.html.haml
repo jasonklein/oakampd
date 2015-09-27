@@ -11,12 +11,14 @@
   - if @feature.cover_image
     .feature-show-cover-image.feature-show-margin
       = image_tag @feature.cover_image_url
-  .feature-show-content.backing.feature-show-padding.feature-show-margin
-    - if @feature.display_subtitle
-      .subtitle.feature-show-margin
-        = @feature.subtitle
-    %p.body
-      = @feature.body
+  - if (@feature.subtitle.present? && @feature.display_subtitle) || @feature.body.present?
+    .feature-show-content.backing.feature-show-padding.feature-show-margin
+      - if @feature.subtitle.present? && @feature.display_subtitle
+        .subtitle.feature-show-margin
+          = @feature.subtitle
+      - if @feature.body.present?
+        .body
+          = simple_format @feature.body
   - if @feature.other_images_urls
     .feature-show-other-images
       - @feature.other_images_urls.each do |other_image_url|

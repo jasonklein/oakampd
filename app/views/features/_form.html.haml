@@ -5,25 +5,22 @@
         = @feature.errors.full_messages.join(', ').downcase.capitalize
 
   = f.label :title, form_label_with_backing(:title)
-  = f.text_field :title, autofocus: true
+  = f.text_field :title, autofocus: true, required: true, maxlength: 100
   %br
   = f.label :subtitle, form_label_with_backing(:subtitle)
-  = f.text_field :subtitle
+  = f.text_field :subtitle, maxlength: 200
   = f.label :display_subtitle, form_label_with_backing(:display_subtitle)
-  = f.radio_button :display_subtitle, true
-  = f.label :display_subtitle_true, form_label_with_backing(:yes)
-  = f.radio_button :display_subtitle, false
-  = f.label :display_subtitle_false, form_label_with_backing(:no)
+  = f.check_box :display_subtitle
   %br
   = f.label :body, form_label_with_backing(:body)
-  = f.text_area :body
+  = f.text_area :body, rows: 20
   %br
   %br
   = f.label :feature_images, form_label_with_backing(:feature_images)
   = f.label :cover_image, form_label_with_backing(:cover_image)
-  = f.file_field :cover_image, accept: 'image/jpg, image/jpeg image/gif, image/png'
+  = f.file_field :cover_image, accept: 'image/jpg, image/jpeg image/gif, image/png', class: 'backing'
   = f.label :other_images, form_label_with_backing(:other_images)
-  = f.file_field :other_images, multiple: true, accept: 'image/jpg, image/jpeg image/gif, image/png'
+  = f.file_field :other_images, multiple: true, accept: 'image/jpg, image/jpeg image/gif, image/png', class: 'backing'
   = f.fields_for :feature_images do |fi|
     - next unless fi.object.cover
     = image_tag fi.object.image.url :thumb

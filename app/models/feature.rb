@@ -8,6 +8,7 @@ class Feature < ActiveRecord::Base
   accepts_nested_attributes_for :feature_images, allow_destroy: true
 
   validates :title, presence: true, uniqueness: true, length: { maximum: 100 }
+  validates :subtitle, length: { maximum: 200 }
   validates :slug, presence: true
 
   attr_writer :cover_image, :other_images

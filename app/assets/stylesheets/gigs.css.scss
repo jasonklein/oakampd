@@ -164,12 +164,6 @@
 }
 
 #new_gig {
-  /*textarea,
-  #{$all-text-inputs},
-  select[multiple=multiple] {
-    width: 90%;
-    color: $base-link-color;
-  }*/
   #new-gig-row-1, #new-gig-row-2, #new-gig-row-3 {
     @include row(table);
   }
