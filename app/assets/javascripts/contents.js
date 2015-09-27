@@ -5,7 +5,7 @@
 var OakAmpdContentsJs = OakAmpdContentsJs || {};
 
 OakAmpdContentsJs.setupFroala = function() {
-  $('#content_gigs_header, #content_venues_header, #content_bands_header, #content_about_header, #content_about_content').editable({
+  $('#content_gigs_header, #content_venues_header, #content_bands_header, #content_features_header, #content_about_header, #content_about_content').editable({
     inlineMode: false,
     imageUpload: false,
     theme: 'dark'

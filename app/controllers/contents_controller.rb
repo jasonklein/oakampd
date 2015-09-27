@@ -17,6 +17,6 @@ class ContentsController < ApplicationController
   private
 
   def content_params
-    params.require(:content).permit(:gigs_header, :venues_header, :bands_header, :about_header, :about_content)
+    params.require(:content).permit(:about_content, :about_header, :bands_header, :features_header, :gigs_header, :venues_header)
   end
 end
