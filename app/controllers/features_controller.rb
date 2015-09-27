@@ -1,6 +1,6 @@
 class FeaturesController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
-  load_and_authorize_resource
+  load_and_authorize_resource find_by: :slug
   skip_load_resource only: :index
 
   def index

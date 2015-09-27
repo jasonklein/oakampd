@@ -14,6 +14,7 @@ gem 'normalize-rails'
 gem 'bourbon'
 gem 'neat'
 gem 'bitters'
+gem 'friendly_id', '~> 5.1.0'
 
 gem 'haml-rails'
 

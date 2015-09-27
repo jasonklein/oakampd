@@ -1,11 +1,17 @@
 class Feature < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   belongs_to :author, class_name: 'User'
 
   has_many :feature_images, dependent: :destroy
   accepts_nested_attributes_for :feature_images, allow_destroy: true
 
+  validates :title, presence: true, uniqueness: true
+  validates :slug, presence: true
+
   attr_writer :cover_image, :other_images
-  
+
   scope :published, -> { where published: true }
 
   def cover_image
@@ -22,7 +28,7 @@ class Feature < ActiveRecord::Base
     images.map { |i| i.image.url }
   end
 
-  def title
-    published ? self[:title] : "Draft: #{self[:title]}"
+  def display_title
+    published ? title : "Draft: #{title}"
   end
 end

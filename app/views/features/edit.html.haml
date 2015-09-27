@@ -1,5 +1,5 @@
 %h2
   %span.backing
-    = "Edit #{@feature.title}"
+    = "Edit #{@feature.display_title}"
 %br
 = render partial: 'form', locals: { submits: 'edit_submit' }
