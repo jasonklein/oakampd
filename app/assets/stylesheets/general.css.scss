@@ -217,6 +217,14 @@ body {
     #main-content {
       @include span-columns(8);
       vertical-align: top;
+
+      textarea,
+      #{$all-text-inputs},
+      select[multiple=multiple] {
+        width: 90%;
+        color: #000;
+      }
+
       @include media($below-desktop) {
         @include span-columns(8);
         padding-left: $mobile-padding;

@@ -1,12 +1,16 @@
-%ul
+%ul.features-overview
   - features.each do |feature|
-    %li
-      .feature-cover
-        = link_to image_tag(cover_image_for_index(feature)), feature_path(feature)
-      .feature-title
-        %h2
+    %li.features-overview-feature.backing
+      - if feature.cover_image
+        .feature-cover
+          = link_to image_tag(feature.cover_image_url :thumb), feature_path(feature)
+      .feature-content{ class: feature.cover_image ? 'with-cover' : 'without-cover'}
+        - unless features_controller?
+          .checkout CHECKOUT
+        %h2.feature-title
           = link_to feature.display_title, feature_path(feature)
-        - if feature.display_subtitle
-          %h3
-            = feature.subtitle
-        = button_to 'Edit', edit_feature_path(feature), method: :get if can? :update, feature
+        .feature-subtitle
+          = feature_overview_subtitle(feature)
+        %p.feature-date
+          = feature.display_date
+        = button_to 'Edit', edit_feature_path(feature), method: :get, class: 'edit-button' if can? :update, feature

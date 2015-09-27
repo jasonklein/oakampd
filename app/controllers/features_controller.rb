@@ -4,8 +4,8 @@ class FeaturesController < ApplicationController
   skip_load_resource only: :index
 
   def index
-    @features = Feature.published unless current_user
-    @features = Feature.all if current_user
+    @published_features = Feature.published
+    @draft_features = Feature.unpublished if current_user
   end
 
   def new
@@ -13,6 +13,7 @@ class FeaturesController < ApplicationController
 
   def create
     set_published_status
+    set_author
     return render :new unless @feature.save
     set_feature_images(params[:feature][:cover_image], params[:feature][:other_images])
     redirect_to feature_path @feature
@@ -26,6 +27,7 @@ class FeaturesController < ApplicationController
 
   def update
     set_published_status
+    set_author
     return render :edit unless @feature.update feature_params
     set_feature_images(params[:feature][:cover_image], params[:feature][:other_images])
     redirect_to feature_path @feature
@@ -40,6 +42,10 @@ class FeaturesController < ApplicationController
     params.require(:feature).permit(:body, :cover_image, :display_subtitle, :other_images, :subtitle, :title, feature_images_attributes: [:_destroy, :cover, :feature_id, :id, :image])
   end
 
+  def set_author
+    @feature.author = current_user
+  end
+
   def set_published_status
     @feature.published = params[:publish] == 'true' ? true : false if params[:publish]
   end
@@ -50,7 +56,7 @@ class FeaturesController < ApplicationController
   end
 
   def set_cover_image(new_cover_image)
-    cover_image = @feature.feature_images.new image: new_cover_image, cover: true
+    cover_image = @feature.feature_images.new(image: new_cover_image, cover: true)
 
     @feature.cover_image.update(cover: false) if @feature.cover_image
     cover_image.save    

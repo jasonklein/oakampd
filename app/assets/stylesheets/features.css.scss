@@ -1,3 +1,77 @@
 // Place all the styles related to the Features controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.features-overview {
+  .features-overview-feature {
+    @include row(table);
+    height: 227px;
+    margin-bottom: 20px;
+    max-height: 227px;
+
+    .feature-cover {
+      @include span-columns(1 of 3);
+      background-color: $highlight-full-color;
+    }
+
+    .feature-content {
+      &.with-cover {
+        @include span-columns(2 of 3);
+      }
+
+      &.without-cover {
+        @include span-columns(3 of 3);
+      }
+
+      @include reset-display;
+      padding: 5px;
+      padding-left: 5%;
+      vertical-align: top;
+      position: relative;
+      max-height: inherit;
+
+      .feature-subtitle {
+        font-size: $base-font-size * 1.25;
+        margin-top: 10px;
+        overflow: hidden;
+      }
+
+      .feature-date {
+        position: absolute;
+        bottom: 0;
+      }
+
+    }
+  }
+}
+
+.feature-show {
+  .feature-show-padding {
+    padding: 10px;
+  }
+
+  .feature-show-margin {
+    margin-bottom: 20px;
+  }
+
+  .feature-show-header {
+    .button_to {
+      display: inline-block;
+    }
+  }
+
+  .feature-show-content {
+    .subtitle {
+      font-size: $base-font-size * 1.5;
+      font-weight: 400;
+    }
+
+    .body {
+      font-size: $base-font-size * 1.20;
+    }
+  }
+}
+
+.edit-button {
+  float: right;
+}

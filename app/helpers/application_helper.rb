@@ -70,4 +70,8 @@ module ApplicationHelper
     content = Content.first
     raw content.about_content
   end
+
+  def features_controller?
+    params[:controller] == 'features'
+  end
 end

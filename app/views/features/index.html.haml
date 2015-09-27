@@ -1,2 +1,11 @@
-= render partial: "overview", locals: { features: @features }
-      
+- if cannot? :update, Feature
+  = render partial: "overview", locals: { features: @published_features }
+- else 
+  %h2
+    %span.backing Published
+  %br
+  = render partial: "overview", locals: { features: @published_features }
+  %h2
+    %span.backing Drafts
+  %br
+  = render partial: "overview", locals: { features: @draft_features } if @draft_features      

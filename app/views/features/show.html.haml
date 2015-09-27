@@ -1,17 +1,23 @@
-%h1
-  = @feature.display_title
-- if @feature.display_subtitle
-  %h2
-    = @feature.subtitle
-- if can? :update, @feature
-  = button_to 'Edit', edit_feature_path(@feature), method: :get
-  %br
-- if @feature.cover_image
-  .cover-image
-    = image_tag @feature.cover_image_url
-%p
-  = @feature.body
-- if @feature.other_images_urls
-  .other-images
-    - @feature.other_images_urls.each do |other_image_url|
-      = image_tag other_image_url
+.feature-show
+  .feature-show-header.backing.feature-show-padding.feature-show-margin
+    %h1.title.feature-show-margin
+      = @feature.display_title
+    .other-details
+      .by-line
+        = @feature.author.try(:name) || 'Oak Ampd'
+      .date
+        = @feature.display_date
+    = button_to 'Edit', edit_feature_path(@feature), method: :get, class: 'edit-button' if can? :update, @feature
+  - if @feature.cover_image
+    .feature-show-cover-image.feature-show-margin
+      = image_tag @feature.cover_image_url
+  .feature-show-content.backing.feature-show-padding.feature-show-margin
+    - if @feature.display_subtitle
+      .subtitle.feature-show-margin
+        = @feature.subtitle
+    %p.body
+      = @feature.body
+  - if @feature.other_images_urls
+    .feature-show-other-images
+      - @feature.other_images_urls.each do |other_image_url|
+        = image_tag other_image_url

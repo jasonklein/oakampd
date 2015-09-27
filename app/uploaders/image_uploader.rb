@@ -27,7 +27,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Process files as they are uploaded:
   process :set_content_type
-  # process :scale => [200, 300]
+  process resize_to_fit: [800, 533]
   #
   # def scale(width, height)
   #   # do something
