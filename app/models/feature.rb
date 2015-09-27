@@ -5,6 +5,8 @@ class Feature < ActiveRecord::Base
   accepts_nested_attributes_for :feature_images, allow_destroy: true
 
   attr_writer :cover_image, :other_images
+  
+  scope :published, -> { where published: true }
 
   def cover_image
     feature_images.find_by_cover(true) || feature_images.order(:id).first
@@ -18,5 +20,9 @@ class Feature < ActiveRecord::Base
     return unless cover_image
     images = feature_images.where(cover: false).where('id != ?', cover_image.id).order(:id)
     images.map { |i| i.image.url }
+  end
+
+  def title
+    published ? self[:title] : "Draft: #{self[:title]}"
   end
 end

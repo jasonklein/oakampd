@@ -2,6 +2,9 @@
   = @feature.title
 %h2
   = @feature.subtitle
+- if can? :update, @feature
+  = button_to 'Edit', edit_feature_path(@feature), method: :get
+  %br
 - if @feature.cover_image
   .cover-image
     = image_tag @feature.cover_image_url

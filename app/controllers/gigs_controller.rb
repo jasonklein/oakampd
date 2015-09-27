@@ -33,7 +33,7 @@ class GigsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @gig.update_attributes(params[:gig])
+      if @gig.update_attributes gig_params
         format.html { redirect_to root_path, :notice => "Gig was successfully updated." }
         format.json { respond_with_bip @gig }
       else

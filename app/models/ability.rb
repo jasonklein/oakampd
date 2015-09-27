@@ -18,6 +18,7 @@ class Ability
         can :manage, Feature
       else
         can :read, :all
+        can :read, Feature, published: true
         cannot :read, User
       end
     #

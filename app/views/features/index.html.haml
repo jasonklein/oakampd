@@ -1,2 +1,5 @@
-%h1 Features#index
-%p Find me in app/views/features/index.html.haml
+%h1 Features
+%ul
+  - @features.each do |feature|
+    %li
+      = feature.title

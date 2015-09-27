@@ -7,7 +7,7 @@ class ContentsController < ApplicationController
   end
 
   def update
-    if @content.update_attributes(params[:content])
+    if @content.update_attributes content_params
       redirect_to edit_content_path, :notice => "Content was successfully updated."
     else
       render "edit"

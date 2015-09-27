@@ -1,18 +1,19 @@
 class FeaturesController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
   load_and_authorize_resource
+  skip_load_resource only: :index
 
   def index
+    @features = Feature.published unless current_user
+    @features = Feature.all if current_user
   end
 
   def new
   end
 
   def create
-    @feature = Feature.new params[:feature]
+    set_published_status
     return render :new unless @feature.save
-    # new_cover_image = params[:feature].delete :cover_image
-    # other_images = params[:feature].delete :other_images
     set_feature_images(params[:feature][:cover_image], params[:feature][:other_images])
     redirect_to feature_path @feature
   end
@@ -24,7 +25,8 @@ class FeaturesController < ApplicationController
   end
 
   def update
-    return render :edit unless @feature.update_attributes params[:feature]
+    set_published_status
+    return render :edit unless @feature.update_attributes feature_params
     set_feature_images(params[:feature][:cover_image], params[:feature][:other_images])
     redirect_to feature_path @feature
   end
@@ -35,7 +37,11 @@ class FeaturesController < ApplicationController
   private
 
   def feature_params
-    params.require(:feature).permit(:body, :cover_image, :display_subtitle, :feature_images_attributes, :other_images, :subtitle, :title, :feature_images_attributes: [:cover, :feature_id, :image])
+    params.require(:feature).permit(:body, :cover_image, :display_subtitle, :other_images, :subtitle, :title, feature_images_attributes: [:_destroy, :cover, :feature_id, :id, :image])
+  end
+
+  def set_published_status
+    @feature.published = params[:publish] == 'true' ? true : false if params[:publish]
   end
 
   def set_feature_images(new_cover_image, other_images)

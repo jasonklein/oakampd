@@ -40,7 +40,7 @@ class BandsController < ApplicationController
     tag_names = params[:tags].split.map(&:downcase).uniq 
     @band.add_tags tag_names
 
-    if @band.update_attributes params[:band]
+    if @band.update_attributes band_params
       redirect_to bandwatch_path, notice: "Band updated!"
     else
       render "edit"
