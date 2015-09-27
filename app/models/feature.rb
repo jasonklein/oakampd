@@ -22,13 +22,17 @@ class Feature < ActiveRecord::Base
     cover_image.image.url version
   end
 
+  def display_title
+    published ? title : "Draft: #{title}"
+  end
+
   def other_images_urls
     return unless cover_image
     images = feature_images.where(cover: false).where('id != ?', cover_image.id).order(:id)
     images.map { |i| i.image.url }
   end
 
-  def display_title
-    published ? title : "Draft: #{title}"
+  def should_generate_new_friendly_id?
+    title_changed?
   end
 end
