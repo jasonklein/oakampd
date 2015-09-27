@@ -1,0 +1,12 @@
+%ul
+  - features.each do |feature|
+    %li
+      .feature-cover
+        = link_to image_tag(cover_image_for_index(feature)), feature_path(feature)
+      .feature-title
+        %h2
+          = link_to feature.display_title, feature_path(feature)
+        - if feature.display_subtitle
+          %h3
+            = feature.subtitle
+        = button_to 'Edit', edit_feature_path(feature), method: :get if can? :update, feature

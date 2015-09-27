@@ -6,6 +6,7 @@ class GigsController < ApplicationController
   def index
     @first_ids, @last_ids = firsts_and_lasts_of_the_month_ids(@gigs)
     @ads = ads
+    @latest_feature = Feature.latest
   end
 
   def new
@@ -33,7 +34,7 @@ class GigsController < ApplicationController
 
   def update
     respond_to do |format|
-      if @gig.update_attributes gig_params
+      if @gig.update gig_params
         format.html { redirect_to root_path, :notice => "Gig was successfully updated." }
         format.json { respond_with_bip @gig }
       else

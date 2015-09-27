@@ -12,6 +12,7 @@ class Feature < ActiveRecord::Base
 
   attr_writer :cover_image, :other_images
 
+  default_scope { order updated_at: :desc }
   scope :published, -> { where published: true }
 
   def cover_image
@@ -34,5 +35,10 @@ class Feature < ActiveRecord::Base
 
   def should_generate_new_friendly_id?
     title_changed?
+  end
+
+  def self.latest
+    Feature.published.where('updated_at > ?', 1.week.ago).first ||
+    Feature.published.where('updated_at > ?', 1.month.ago).sample
   end
 end

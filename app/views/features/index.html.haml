@@ -1,5 +1,3 @@
 %h1 Features
-%ul
-  - @features.each do |feature|
-    %li
-      = feature.display_title
+= render partial: "overview", locals: { features: @features }
+      

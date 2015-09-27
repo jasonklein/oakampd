@@ -26,7 +26,7 @@ class FeaturesController < ApplicationController
 
   def update
     set_published_status
-    return render :edit unless @feature.update_attributes feature_params
+    return render :edit unless @feature.update feature_params
     set_feature_images(params[:feature][:cover_image], params[:feature][:other_images])
     redirect_to feature_path @feature
   end
@@ -52,7 +52,7 @@ class FeaturesController < ApplicationController
   def set_cover_image(new_cover_image)
     cover_image = @feature.feature_images.new image: new_cover_image, cover: true
 
-    @feature.cover_image.update_attributes(cover: false) if @feature.cover_image
+    @feature.cover_image.update(cover: false) if @feature.cover_image
     cover_image.save    
   end
 
