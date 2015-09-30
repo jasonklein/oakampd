@@ -4,18 +4,26 @@
     = favicon_link_tag favicon_filename
     %title
       = yield(:title).empty? ? 'OAK AMPD' : yield(:title)
-    %link{href: 'http://fonts.googleapis.com/css?family=Roboto+Slab:400,300|Roboto:400,300', rel:'stylesheet', type: 'text/css'}
+    %link{ href: 'http://fonts.googleapis.com/css?family=Roboto+Slab:400,300|Roboto:400,300', rel:'stylesheet', type: 'text/css'}
     = stylesheet_link_tag 'application', :media => 'all'
     = render "analytics_and_maps/google_maps" if params[:controller] == "venues"
-    =# logic in the view above because venues_controller? method throws undefined method error when visiting high voltage pages
     = javascript_include_tag 'application'
     = csrf_meta_tags
-    %meta{name: 'viewport', content: 'width=device-width, initial-scale=1'}
-    %meta{name: 'description', content: 'Your Oakland gig guide. Find information on live music gigs and shows, venues, and bands in Oakland, California.'}
-    %meta{name: 'keywords', content: meta_keywords}
-    %meta{property: 'og:site_name', content: 'oak-ampd'}
-    %meta{property: 'og:title', content: 'Oak Ampd'}
-    %meta{property: 'og:description', content: 'Your Oakland gig guide. Find information on live music gigs and shows, venues, and bands in Oakland, California.'}
+    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1'}
+    %meta{ name: 'keywords', content: meta_keywords}
+    %meta{ property: 'og:site_name', content: 'OakAmpd'}
+    %meta{ property: 'og:type', content: 'article' }
+    %meta{ property: 'twitter:card', content: 'summary' }
+    %meta{ property: 'twitter:site', content: '@oakampd' }
+    %meta{ property: 'description', content: yield(:meta_description).present? ? yield(:meta_description) : default_meta[:description] }
+    %meta{ property: 'og:description', content: yield(:meta_og_description).present? ? yield(:meta_og_description) : default_meta[:description] }
+    %meta{ property: 'twitter:description', content: yield(:meta_twitter_description).present? ? yield(:meta_twitter_description) : default_meta[:description] }
+    %meta{ property: 'og:image', content: yield(:meta_og_image).present? ? yield(:meta_og_image) : default_meta[:image] }
+    %meta{ property: 'twitter:image', content: yield(:meta_twitter_image).present? ? yield(:meta_twitter_image) : default_meta[:image] }
+    %meta{ property: 'og:title', content: yield(:meta_og_title).present? ? yield(:meta_og_title) : default_meta[:title] }
+    %meta{ property: 'twitter:title', content: yield(:meta_twitter_title).present? ? yield(:meta_twitter_title) : default_meta[:title] }
+    %meta{ property: 'og:url', content: yield(:meta_og_url).present? ? yield(:meta_og_url) : default_meta[:url] }
+    %meta{ property: 'twitter:url', content: yield(:meta_twitter_url).present? ? yield(:meta_twitter_url) : default_meta[:url] }
 
   %body
     %header

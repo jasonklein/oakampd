@@ -1,3 +1,14 @@
+- content_for :title, @feature.title
+- content_for :meta_description, @feature.subtitle
+- content_for :meta_og_description, @feature.subtitle
+- content_for :meta_og_image, @feature.cover_image_url
+- content_for :meta_og_title, @feature.title
+- content_for :meta_og_url, feature_url(@feature)
+- content_for :meta_twitter_description, @feature.subtitle
+- content_for :meta_twitter_image, @feature.cover_image_url
+- content_for :meta_twitter_title, @feature.title
+- content_for :meta_twitter_url, feature_url(@feature)
+
 .feature-show
   .feature-show-header.backing.feature-show-padding
     %h1.title.feature-show-margin

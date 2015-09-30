@@ -11,6 +11,10 @@ module ApplicationHelper
     placeholder ? "oak-ampd-logo-placeholder.jpg" : "oak-ampd-logo-bordered.jpg"
   end
 
+  def logo_thumb
+    "oak-ampd-logo-thumb.jpg"
+  end
+
   def favicon_filename
     "oak-ampd-favicon.ico"
   end
@@ -73,5 +77,14 @@ module ApplicationHelper
 
   def features_controller?
     params[:controller] == 'features'
+  end
+
+  def default_meta
+    {
+      description: 'Your Oakland gig guide. Find information on live music gigs and shows, venues, and bands in Oakland, California.',
+      image: asset_url(logo_thumb),
+      title: 'Oak Ampd',
+      url: root_url
+    }
   end
 end
