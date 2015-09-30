@@ -6,7 +6,7 @@ class GigsController < ApplicationController
   def index
     @first_ids, @last_ids = firsts_and_lasts_of_the_month_ids(@gigs)
     @ads = ads
-    @latest_feature = Feature.latest
+    # @latest_feature = Feature.latest
   end
 
   def new
