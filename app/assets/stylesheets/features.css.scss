@@ -46,7 +46,7 @@
 
 .feature-show {
   .feature-show-padding {
-    padding: 10px;
+    padding: 15px;
   }
 
   .feature-show-margin {
@@ -59,7 +59,16 @@
     }
   }
 
+  .feature-show-cover-image {
+    img {
+      width: 100%;
+      height: auto;
+    }
+    line-height: 0;
+  }
+
   .feature-show-content {
+    padding: 20px 40px;
     .subtitle {
       font-size: $base-font-size * 1.5;
       font-weight: 400;
@@ -68,6 +77,10 @@
     .body {
       font-size: $base-font-size * 1.20;
     }
+  }
+
+  .feature-show-other-images {
+    line-height: 0;
   }
 }
 

@@ -1,5 +1,5 @@
 .feature-show
-  .feature-show-header.backing.feature-show-padding.feature-show-margin
+  .feature-show-header.backing.feature-show-padding
     %h1.title.feature-show-margin
       = @feature.display_title
     .other-details
@@ -9,10 +9,10 @@
         = @feature.display_date
     = button_to 'Edit', edit_feature_path(@feature), method: :get, class: 'edit-button' if can? :update, @feature
   - if @feature.cover_image
-    .feature-show-cover-image.feature-show-margin
+    .feature-show-cover-image
       = image_tag @feature.cover_image_url
   - if (@feature.subtitle.present? && @feature.display_subtitle) || @feature.body.present?
-    .feature-show-content.backing.feature-show-padding.feature-show-margin
+    .feature-show-content.backing.feature-show-padding
       - if @feature.subtitle.present? && @feature.display_subtitle
         .subtitle.feature-show-margin
           = @feature.subtitle
