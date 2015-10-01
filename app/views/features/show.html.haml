@@ -19,6 +19,8 @@
       .date
         = @feature.display_date
     = button_to 'Edit', edit_feature_path(@feature), method: :get, class: 'edit-button' if can? :update, @feature
+    .form-button
+      = button_to "Delete", delete_feature_path(@feature), method: :delete, confirm: "Delete feature? This cannot be undone."
   - if @feature.cover_image
     .feature-show-cover-image
       = image_tag @feature.cover_image_url

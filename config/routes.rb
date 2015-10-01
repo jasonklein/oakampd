@@ -21,6 +21,7 @@ Oakampd::Application.routes.draw do
   get "bandwatch", to: "bands#bandwatch", as: "bandwatch"
   delete "bands/:id", to: "bands#destroy", as: "delete_band"
   get "contents/edit", to: "contents#edit", as: "edit_content"
+  delete "features/:id", to: "features#destroy", as: "delete_feature"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

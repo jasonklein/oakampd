@@ -34,6 +34,8 @@ class FeaturesController < ApplicationController
   end
 
   def destroy
+    @feature.destroy
+    redirect_to features_path, notice: "Feature deleted."
   end
 
   private
