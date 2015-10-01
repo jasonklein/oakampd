@@ -5,6 +5,7 @@
     %title
       = yield(:title).empty? ? 'OAK AMPD' : yield(:title)
     %link{ href: 'http://fonts.googleapis.com/css?family=Roboto+Slab:400,300|Roboto:400,300', rel:'stylesheet', type: 'text/css'}
+    %link{ rel: 'me', href: 'https://twitter.com/oakampd' }
     = stylesheet_link_tag 'application', :media => 'all'
     = render "analytics_and_maps/google_maps" if params[:controller] == "venues"
     = javascript_include_tag 'application'
