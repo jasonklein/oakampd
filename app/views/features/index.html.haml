@@ -1,8 +1,9 @@
-- unless @published_features.present? || @draft_features.present?
-  %h1
-    %span.backing Features are on their way!
 - if cannot? :update, Feature
-  = render partial: "overview", locals: { features: @published_features }
+  - if @published_features.present?
+    = render partial: "overview", locals: { features: @published_features }
+  - else
+    %h1
+      %span.backing Features are on their way!
 - else 
   %h2
     %span.backing Published
