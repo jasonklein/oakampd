@@ -50,6 +50,7 @@ class GigsController < ApplicationController
   end
 
   def firsts_and_lasts_of_the_month_ids(gigs)
+    return nil, nil unless gigs.present?
 
     ### Assumes proper chrono. ordering by default_scope
     ### Puts ids of adjacent gigs with different months into
